@@ -3,7 +3,7 @@ title:            Nathan Fieldsteel
 tagline:          ''
 description:      'Mathematical software and computation'
 url:              https://nathanfieldsteel.github.io
-baseurl:          ''
+baseurl:          https://nathanfieldsteel.github.io
 paginate:         5
 
 
@@ -21,4 +21,5 @@ plugins:
 # Custom vars
 sidebar-name:	N Fieldsteel
 version:    	3.0.0
+
 site.github.repo:	  github.com/nathanfieldsteel
