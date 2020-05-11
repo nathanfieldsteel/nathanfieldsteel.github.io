@@ -1,8 +1,0 @@
-I"ò<p>The twisted cubic.</p>
-
-<p>Get the equation of the tangent variety to the twisted cubic, using M2.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>betti res coker gens phi
-</code></pre></div></div>
-
-:ET

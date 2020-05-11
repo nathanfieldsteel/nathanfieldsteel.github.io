@@ -4,7 +4,7 @@
  <title>Nathan Fieldsteel</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-05-11T17:15:35-04:00</updated>
+ <updated>2020-05-11T18:36:55-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Nathan Fieldsteel</name>
@@ -241,7 +241,20 @@
 
 &lt;p&gt;Get the equation of the tangent variety to the twisted cubic, using M2.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;betti res coker gens phi
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;i1 : R = QQ[X,Y,Z];
+
+i2 : S = QQ[s,t];
+
+i3 : f = map(S,R,matrix {{t+s, t^2 + 2*s*t, t^3 + 3*s*t^2}});
+
+o3 : RingMap S &amp;lt;--- R
+
+i4 : ker f
+
+             2 2     3      3             2
+o4 = ideal(3X Y  - 4X Z - 4Y  + 6X*Y*Z - Z )
+
+o4 : Ideal of R
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 </content>
