@@ -3,7 +3,7 @@ title:            Nathan Fieldsteel
 tagline:          ''
 description:      'Mathematical software and computation'
 url:              https://nathanfieldsteel.github.io
-baseurl:          https://nathanfieldsteel.github.io
+baseurl:          ''
 paginate:         5
 
 
