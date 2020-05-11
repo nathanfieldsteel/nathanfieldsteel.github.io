@@ -1,0 +1,19 @@
+---
+layout: page
+title: About
+---
+
+I am a postdoctoral scholar in the [algebra group](https://math.as.uky.edu/algebra-and-number-theory) at the University of Kentucky, where I work with [Uwe Nagel](https://math.as.uky.edu/users/urnage2) on problems in computational mathematics and commutative algebra. I am currently on the job market.
+
+* [Mathematica](https://www.wolfram.com/mathematica/)
+* [Macaulay2](https://faculty.math.illinois.edu/Macaulay2/)
+* [SageMath](https://www.sagemath.org/)
+* [GAP](https://www.gap-system.org/)
+
+### Publications
+
+### Teaching
+
+### This Site
+
+This site was built using [jekyll] and is based on the Hyde theme
