@@ -10,5 +10,3 @@ title: Posts
     </li>
   {% endfor %}
 </ul>
-
-See if this does anything.
