@@ -2,15 +2,14 @@
 title:            Nathan Fieldsteel
 tagline:          ''
 description:      'Mathematical software and computation'
-url:              ''
-baseurl:          'https://nathanfieldsteel.github.io'
+url:              'https://nathanfieldsteel.github.io'
+baseurl:          ''
 paginate:         5
 
 
 # About and contact
 author:
   name:           'Nathan Fieldsteel'
-  url:            https://nathanfieldsteel.github.io
 
 # Gems
 plugins:
