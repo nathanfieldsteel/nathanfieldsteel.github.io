@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Nathan Fieldsteel</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2020-05-12T09:03:15-04:00</updated>
- <id>http://localhost:4000</id>
+ <link href="https://nathanfieldsteel.github.io/atom.xml" rel="self"/>
+ <link href="https://nathanfieldsteel.github.io/"/>
+ <updated>2020-05-12T11:41:35-04:00</updated>
+ <id>https://nathanfieldsteel.github.io</id>
  <author>
    <name>Nathan Fieldsteel</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>The Tangent Variety to the Twisted Cubic</title>
-   <link href="http://localhost:4000/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic.html"/>
+   <link href="https://nathanfieldsteel.github.io/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic.html"/>
    <updated>2020-02-18T00:00:00-05:00</updated>
-   <id>http://localhost:4000/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic</id>
+   <id>https://nathanfieldsteel.github.io/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic</id>
    <content type="html">&lt;p&gt;The twisted cubic.&lt;/p&gt;
 
 &lt;p&gt;Get the equation of the tangent variety to the twisted cubic, using M2.&lt;/p&gt;
@@ -42,9 +42,9 @@ o4 : Ideal of R
  
  <entry>
    <title>27 Lines on a Cubic Suface</title>
-   <link href="http://localhost:4000/2019/10/15/27-Lines.html"/>
+   <link href="https://nathanfieldsteel.github.io/2019/10/15/27-Lines.html"/>
    <updated>2019-10-15T00:00:00-04:00</updated>
-   <id>http://localhost:4000/2019/10/15/27-Lines</id>
+   <id>https://nathanfieldsteel.github.io/2019/10/15/27-Lines</id>
    <content type="html">&lt;p&gt;Any smooth cubic surface contains exactly 27 lines (with caveats). You can get them all in the real locus with the Clebsch diagonal surface. &lt;a href=&quot;https://blogs.ams.org/visualinsight/2016/02/15/27-lines-on-a-cubic-surface/&quot;&gt;Link 1&lt;/a&gt;. &lt;a href=&quot;https://analyticphysics.com/Higher%20Dimensions/27%20Lines%20on%20a%20Cubic%20Surface.htm&quot;&gt;Link 2&lt;/a&gt; &lt;a href=&quot;https://en.wikipedia.org/wiki/Clebsch_surface&quot;&gt;Link 3&lt;/a&gt; &lt;a href=&quot;https://en.wikipedia.org/wiki/Cubic_surface#27_lines_on_a_cubic_surface&quot;&gt;Link4&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;creating-an-stl-file-with-sage&quot;&gt;Creating an .stl file with Sage&lt;/h3&gt;
