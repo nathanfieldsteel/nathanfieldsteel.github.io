@@ -4,7 +4,7 @@
  <title>Nathan Fieldsteel</title>
  <link href="https://nathanfieldsteel.github.io/atom.xml" rel="self"/>
  <link href="https://nathanfieldsteel.github.io/"/>
- <updated>2020-05-16T12:39:14-04:00</updated>
+ <updated>2020-05-16T14:57:01-04:00</updated>
  <id>https://nathanfieldsteel.github.io</id>
  <author>
    <name>Nathan Fieldsteel</name>
@@ -45,16 +45,16 @@ o4 : Ideal of R
    <link href="https://nathanfieldsteel.github.io/2019/10/15/27-Lines.html"/>
    <updated>2019-10-15T00:00:00-04:00</updated>
    <id>https://nathanfieldsteel.github.io/2019/10/15/27-Lines</id>
-   <content type="html">&lt;p&gt;This is a summary of a project Sean grate an I worked on, using
-&lt;a href=&quot;https://www.sagemath.org&quot;&gt;Sage&lt;/a&gt; and a 3D printer to make a nice model
-of the Clebsch diagonal cubic and its \(27\) lines.&lt;/p&gt;
+   <content type="html">&lt;p&gt;This is a summary of a project Sean Grate an I worked on, using
+&lt;a href=&quot;https://www.sagemath.org&quot;&gt;Sage&lt;/a&gt; and a 3D printer to make a model of
+the Clebsch diagonal cubic and its \(27\) lines.&lt;/p&gt;
 
 &lt;p&gt;It is a classical fact from algebraic geometry that any smooth cubic
-surface contains exactly \(27\) lines, and furthermore there exists
-a cubic surface for which all these lines are visible in the real
-locus with a high degree of symmetry. The precise statement of these
-facts requires some care and some more precise terminology, which I
-won’t go into here, but you can read more on wikipedia
+surface contains exactly \(27\) lines, and furthermore that there
+exists a cubic surface for which all these lines are visible in the
+real locus with a high degree of symmetry. The precise statement of
+these facts requires some care and some more precise terminology,
+which I won’t go into here, but you can read more on wikipedia
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Cubic_surface#27_lines_on_a_cubic_surface&quot;&gt;here&lt;/a&gt;
 or &lt;a href=&quot;https://en.wikipedia.org/wiki/Clebsch_surface&quot;&gt;here&lt;/a&gt;, or in this
 pair of excellent posts
@@ -63,9 +63,9 @@ and
 &lt;a href=&quot;https://analyticphysics.com/Higher%20Dimensions/27%20Lines%20on%20a%20Cubic%20Surface.htm&quot;&gt;here&lt;/a&gt;,
 or in the book &lt;a href=&quot;https://www.springer.com/gp/book/9783540617952&quot;&gt;The Geometry of some Special Arithmetic
 Quotients&lt;/a&gt;. The
-salient facts can be summarized as follows:&lt;/p&gt;
+relevant facts can be summarized as follows:&lt;/p&gt;
 
-&lt;p&gt;The Clebsch diagonal cubic is given by the projective equation&lt;/p&gt;
+&lt;p&gt;The Clebsch diagonal cubic is embedded in \(\mathbb{P}^3\) by the projective equation&lt;/p&gt;
 
 &lt;p&gt;\[
 (x_0 + x_1 + x_2 + x_3)^3 = x_0^3 + x_1^3 + x_2^3 +x_3^3,
@@ -97,26 +97,29 @@ parameters &lt;code class=&quot;highlighter-rouge&quot;&gt;[a,b,c,d,e,f]&lt;/cod
 
 &lt;p&gt;The implicit equation of the surface, together with the lines it
 contains, is all we need to produce an .stl file for 3D printing our
-model of this object. Of course, there already exist &lt;a href=&quot;https://www.shapeways.com/marketplace?type=product&amp;amp;q=clebsch&quot;&gt;many 3D printed
+model. Of course, there already exist &lt;a href=&quot;https://www.shapeways.com/marketplace?type=product&amp;amp;q=clebsch&quot;&gt;many 3D printed
 models&lt;/a&gt;
 of the Clebsch diagonal cubic, including various models which
 accentuate the \(27\) lines in various ways.&lt;/p&gt;
 
-&lt;p&gt;Some models used color, or embossed the lines on the surface itself,
-but we were particularly interested in modles which displayed only a
+&lt;p&gt;Some models use color, or embossed the lines on the surface itself,
+but we were particularly interested in models which displayed only a
 thin ribbon of the surface, together with the \(27\) lines printed
 as a collection of cylindrical tubes, like in &lt;a href=&quot;https://www.shapeways.com/product/C3YTU5KTB/clebsch-only-its-27-lines-and-a-border?optionId=65608433&amp;amp;li=marketplace&quot;&gt;this
 example&lt;/a&gt;. Inspired
 by this model, our aim was to produce a 3D printed object in the same
 vein, but with two main differences: We wanted our model to be bounded
 by a sphere, and instead of printing the lines as a collection of
-cylindrical tubes, we wanted to show the lines by printing them along
-with a thin strip of the part of the surface which surrounds each
-line.&lt;/p&gt;
+cylindrical tubes, we wanted to show the lines by printing a thin
+strip of the part of the surface which surrounds each line.&lt;/p&gt;
 
 &lt;p&gt;This can easily be done with the Sage &lt;code class=&quot;highlighter-rouge&quot;&gt;implicit_plot3d&lt;/code&gt; function,
 for which the &lt;code class=&quot;highlighter-rouge&quot;&gt;region&lt;/code&gt; option lets us plot only the points for
-which a certain boolean condition is satisfied. For example, we only want to see the points on the Clebsch diagonal cubic which are inside a sphere of radius \(R\), and which are either within \(\epsilon\) of one of the \(27\) lines or are outside a sphere of radius \(r\), for some reasonable choices of values for these parameters&lt;/p&gt;
+which a specified boolean condition is satisfied. For example, we only
+want to see the points on the Clebsch diagonal cubic which are inside
+a sphere of radius \(R\), and which are either within \(\epsilon\)
+of one of the \(27\) lines or are outside a sphere of radius
+\(r\), for some reasonable choices of parameter values.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
@@ -151,28 +154,32 @@ which a certain boolean condition is satisfied. For example, we only want to see
 # that are too big for our 3D printer.
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;surf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;implicit_plot3d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clebsch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-                       &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-                       &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-                       &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-                       &lt;span class=&quot;n&quot;&gt;region&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                       &lt;span class=&quot;n&quot;&gt;plot_points&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                       &lt;span class=&quot;n&quot;&gt;smooth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;n&quot;&gt;surface&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;implicit_plot3d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clebsch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                          &lt;span class=&quot;n&quot;&gt;region&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                          &lt;span class=&quot;n&quot;&gt;plot_points&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                          &lt;span class=&quot;n&quot;&gt;smooth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;from-a-sage-object-to-a-physical-object&quot;&gt;From a Sage object to a physical object&lt;/h3&gt;
 
-&lt;p&gt;To make an .stl file, all that’s left to do is &lt;code class=&quot;highlighter-rouge&quot;&gt;surf.save('path/to/file.stl')&lt;/code&gt;. Since this object has no thickness, it is not suitable for 3D printing. We first used &lt;a href=&quot;https://www.blender.org/&quot;&gt;Blender&lt;/a&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;solidify&lt;/code&gt; the mesh, resulting in something like this:&lt;/p&gt;
+&lt;p&gt;To make an .stl file, all that’s left to do is &lt;code class=&quot;highlighter-rouge&quot;&gt;surface.save('path/to/file.stl')&lt;/code&gt;. Since this object has no thickness, it is not yet suitable for 3D printing. We first used &lt;a href=&quot;https://www.blender.org/&quot;&gt;Blender&lt;/a&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;solidify&lt;/code&gt; the mesh, resulting in something like this:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://nathanfieldsteel.github.io/public/clebschblender.png&quot; alt=&quot;clebsch&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;We sent the .stl file for the thickened surface to the &lt;a href=&quot;https://formlabs.com/3d-printers/form-2/&quot;&gt;Form 2&lt;/a&gt; printer used by the University of Kentucky &lt;a href=&quot;https://ukmathlab.blogspot.com/&quot;&gt;Math Lab&lt;/a&gt;, and after a 23 hour print and some careful support clipping, this was our final product:&lt;/p&gt;
+&lt;p&gt;We sent the .stl file for the thickened surface to the &lt;a href=&quot;https://formlabs.com/3d-printers/form-2/&quot;&gt;Form
+2&lt;/a&gt; printer at the University
+of Kentucky &lt;a href=&quot;https://ukmathlab.blogspot.com/&quot;&gt;Math Lab&lt;/a&gt;, and after a
+23 hour print and some careful support clipping, this was our final
+product:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://nathanfieldsteel.github.io/public/clebsch.jpg&quot; alt=&quot;print&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We’re quite happy with the results, since it accentuates the pieces of
-the surface that contain straight lines while still showing how the
-surface twists around those lines. This model now has a home in the
-display case in the math department at UK.&lt;/p&gt;
+the surface that contain straight lines, while still showing the local
+twisting of the surface around those lines. This model now has a home
+in the display case in the math department at UK.&lt;/p&gt;
 </content>
  </entry>
  
