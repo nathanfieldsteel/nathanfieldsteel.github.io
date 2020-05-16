@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Nathan Fieldsteel</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2020-05-16T12:32:17-04:00</updated>
- <id>http://localhost:4000</id>
+ <link href="https://nathanfieldsteel.github.io/atom.xml" rel="self"/>
+ <link href="https://nathanfieldsteel.github.io/"/>
+ <updated>2020-05-16T12:39:14-04:00</updated>
+ <id>https://nathanfieldsteel.github.io</id>
  <author>
    <name>Nathan Fieldsteel</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>The Tangent Variety to the Twisted Cubic</title>
-   <link href="http://localhost:4000/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic.html"/>
+   <link href="https://nathanfieldsteel.github.io/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic.html"/>
    <updated>2020-02-18T00:00:00-05:00</updated>
-   <id>http://localhost:4000/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic</id>
+   <id>https://nathanfieldsteel.github.io/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic</id>
    <content type="html">&lt;p&gt;The twisted cubic.&lt;/p&gt;
 
 &lt;p&gt;Get the equation of the tangent variety to the twisted cubic, using M2.&lt;/p&gt;
@@ -42,9 +42,9 @@ o4 : Ideal of R
  
  <entry>
    <title>27 Lines on a Cubic Suface</title>
-   <link href="http://localhost:4000/2019/10/15/27-Lines.html"/>
+   <link href="https://nathanfieldsteel.github.io/2019/10/15/27-Lines.html"/>
    <updated>2019-10-15T00:00:00-04:00</updated>
-   <id>http://localhost:4000/2019/10/15/27-Lines</id>
+   <id>https://nathanfieldsteel.github.io/2019/10/15/27-Lines</id>
    <content type="html">&lt;p&gt;This is a summary of a project Sean grate an I worked on, using
 &lt;a href=&quot;https://www.sagemath.org&quot;&gt;Sage&lt;/a&gt; and a 3D printer to make a nice model
 of the Clebsch diagonal cubic and its \(27\) lines.&lt;/p&gt;
@@ -163,14 +163,16 @@ which a certain boolean condition is satisfied. For example, we only want to see
 
 &lt;p&gt;To make an .stl file, all that’s left to do is &lt;code class=&quot;highlighter-rouge&quot;&gt;surf.save('path/to/file.stl')&lt;/code&gt;. Since this object has no thickness, it is not suitable for 3D printing. We first used &lt;a href=&quot;https://www.blender.org/&quot;&gt;Blender&lt;/a&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;solidify&lt;/code&gt; the mesh, resulting in something like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/public/clebschblender.png&quot; alt=&quot;clebsch&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://nathanfieldsteel.github.io/public/clebschblender.png&quot; alt=&quot;clebsch&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;We sent the .stl file for the thickened surface to the &lt;a href=&quot;https://formlabs.com/3d-printers/form-2/&quot;&gt;Form 2&lt;/a&gt; printer used by the University of Kentucky &lt;a href=&quot;https://ukmathlab.blogspot.com/&quot;&gt;Math Lab&lt;/a&gt;, and after a 23 hour print and some careful clipping of supports, this was our final product:&lt;/p&gt;
+&lt;p&gt;We sent the .stl file for the thickened surface to the &lt;a href=&quot;https://formlabs.com/3d-printers/form-2/&quot;&gt;Form 2&lt;/a&gt; printer used by the University of Kentucky &lt;a href=&quot;https://ukmathlab.blogspot.com/&quot;&gt;Math Lab&lt;/a&gt;, and after a 23 hour print and some careful support clipping, this was our final product:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/public/clebsch.jpg&quot; alt=&quot;print&quot; height=&quot;50%&quot; width=&quot;50%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://nathanfieldsteel.github.io/public/clebsch.jpg&quot; alt=&quot;print&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;We’re quite happy with the results, and this model now has a home in
-the display case in the math department at UK.&lt;/p&gt;
+&lt;p&gt;We’re quite happy with the results, since it accentuates the pieces of
+the surface that contain straight lines while still showing how the
+surface twists around those lines. This model now has a home in the
+display case in the math department at UK.&lt;/p&gt;
 </content>
  </entry>
  
