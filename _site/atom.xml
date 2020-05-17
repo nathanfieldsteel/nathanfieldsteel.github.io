@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Nathan Fieldsteel</title>
- <link href="https://nathanfieldsteel.github.io/atom.xml" rel="self"/>
- <link href="https://nathanfieldsteel.github.io/"/>
- <updated>2020-05-16T14:57:01-04:00</updated>
- <id>https://nathanfieldsteel.github.io</id>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2020-05-16T16:21:44-04:00</updated>
+ <id>http://localhost:4000</id>
  <author>
    <name>Nathan Fieldsteel</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>The Tangent Variety to the Twisted Cubic</title>
-   <link href="https://nathanfieldsteel.github.io/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic.html"/>
+   <link href="http://localhost:4000/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic.html"/>
    <updated>2020-02-18T00:00:00-05:00</updated>
-   <id>https://nathanfieldsteel.github.io/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic</id>
+   <id>http://localhost:4000/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic</id>
    <content type="html">&lt;p&gt;The twisted cubic.&lt;/p&gt;
 
 &lt;p&gt;Get the equation of the tangent variety to the twisted cubic, using M2.&lt;/p&gt;
@@ -42,9 +42,9 @@ o4 : Ideal of R
  
  <entry>
    <title>27 Lines on a Cubic Suface</title>
-   <link href="https://nathanfieldsteel.github.io/2019/10/15/27-Lines.html"/>
+   <link href="http://localhost:4000/2019/10/15/27-Lines.html"/>
    <updated>2019-10-15T00:00:00-04:00</updated>
-   <id>https://nathanfieldsteel.github.io/2019/10/15/27-Lines</id>
+   <id>http://localhost:4000/2019/10/15/27-Lines</id>
    <content type="html">&lt;p&gt;This is a summary of a project Sean Grate an I worked on, using
 &lt;a href=&quot;https://www.sagemath.org&quot;&gt;Sage&lt;/a&gt; and a 3D printer to make a model of
 the Clebsch diagonal cubic and its \(27\) lines.&lt;/p&gt;
@@ -166,7 +166,7 @@ of one of the \(27\) lines or are outside a sphere of radius
 
 &lt;p&gt;To make an .stl file, all that’s left to do is &lt;code class=&quot;highlighter-rouge&quot;&gt;surface.save('path/to/file.stl')&lt;/code&gt;. Since this object has no thickness, it is not yet suitable for 3D printing. We first used &lt;a href=&quot;https://www.blender.org/&quot;&gt;Blender&lt;/a&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;solidify&lt;/code&gt; the mesh, resulting in something like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://nathanfieldsteel.github.io/public/clebschblender.png&quot; alt=&quot;clebsch&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/public/clebschblender.png&quot; alt=&quot;clebsch&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We sent the .stl file for the thickened surface to the &lt;a href=&quot;https://formlabs.com/3d-printers/form-2/&quot;&gt;Form
 2&lt;/a&gt; printer at the University
@@ -174,12 +174,55 @@ of Kentucky &lt;a href=&quot;https://ukmathlab.blogspot.com/&quot;&gt;Math Lab&l
 23 hour print and some careful support clipping, this was our final
 product:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://nathanfieldsteel.github.io/public/clebsch.jpg&quot; alt=&quot;print&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/public/clebsch.jpg&quot; alt=&quot;print&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We’re quite happy with the results, since it accentuates the pieces of
 the surface that contain straight lines, while still showing the local
 twisting of the surface around those lines. This model now has a home
 in the display case in the math department at UK.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Visualizing normal subgroups in S<sub>4</sub></title>
+   <link href="http://localhost:4000/2018/11/09/S4-Quilt.html"/>
+   <updated>2018-11-09T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2018/11/09/S4-Quilt</id>
+   <content type="html">&lt;p&gt;The &lt;a href=&quot;https://ukmathlab.blogspot.com/&quot;&gt;Math Lab&lt;/a&gt; at the University of
+Kentucky has a group which visualizes mathematical ideas through
+quilting, with
+&lt;a href=&quot;https://ukmathlab.blogspot.com/search/label/2d%20Visualization&quot;&gt;projects&lt;/a&gt;
+involving partitions, hyperbolic tilings, and prime sieves. One idea
+for a quilting project, originally suggested by &lt;a href=&quot;http://www.ms.uky.edu/~dhje223/&quot;&gt;Dave
+Jensen&lt;/a&gt;, was to create a quilt
+representing the Cayley table for the symmetric group \(S_4\) to
+exhibit its flag of normal subgroups. This post is about an
+implementation of that idea using Mathematica.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://en.wikipedia.org/wiki/Symmetric_group&quot;&gt;symmetric group&lt;/a&gt;
+\(S_4\) is the group of bijective functions from the set \(\lbrace
+1,2,3,4 \rbrace\) to itself. It has an index \(2\) normal subgroup
+\(A_4\) consisting of only the even permutations, and contained in
+\(A_4\) is the Klein \(4\)-group \(V\) generated by products of
+disjoint \(2\)-cycles. Taken together this describes a flag of
+normal subgroups in \(S_4\)&lt;/p&gt;
+
+&lt;p&gt;\[ (1) \trianglelefteq V \trianglelefteq A_4 \trianglelefteq S_4\]&lt;/p&gt;
+
+&lt;p&gt;To work with these permutation groups in Mathematica, all we need to know is that \(S_n\) can be generated by any \(2\)-cycle and any \(n\)-cycle,\(A_4\) can be generated by \((123)\) and \((124)\), and \(V\) is generated by any two of its non-identity elements.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-wl&quot; data-lang=&quot;wl&quot;&gt;&lt;span class=&quot;nv&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Cycles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Cycles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;PermutationGroup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Cycles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Cycles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;PermutationGroup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Cycles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Cycles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;PermutationGroup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
 </content>
  </entry>
  

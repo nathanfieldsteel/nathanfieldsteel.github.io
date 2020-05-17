@@ -12,19 +12,19 @@
     
   </title>
 
-  <link rel="stylesheet" href="https://nathanfieldsteel.github.io/public/css/poole.css">
-  <link rel="stylesheet" href="https://nathanfieldsteel.github.io/public/css/hyde.css">
-  <!-- <link rel="stylesheet" href="https://nathanfieldsteel.github.io/public/css/syntax.css"> -->
-  <!-- <link rel="stylesheet" href="https://nathanfieldsteel.github.io/public/css/zenburn.css"> -->
-  <!--<link rel="stylesheet" href="https://nathanfieldsteel.github.io/public/css/manni.css"> -->
-  <<link rel="stylesheet" href="https://nathanfieldsteel.github.io/public/css/trac.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/hyde.css">
+  <!-- <link rel="stylesheet" href="http://localhost:4000/public/css/syntax.css"> -->
+  <!-- <link rel="stylesheet" href="http://localhost:4000/public/css/zenburn.css"> -->
+  <!--<link rel="stylesheet" href="http://localhost:4000/public/css/manni.css"> -->
+  <<link rel="stylesheet" href="http://localhost:4000/public/css/trac.css">
 
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://nathanfieldsteel.github.io/public/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="https://nathanfieldsteel.github.io/public/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="http://localhost:4000/public/favicon.ico">
 
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://nathanfieldsteel.github.io/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/atom.xml">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
 
@@ -60,7 +60,7 @@
       
         
           
-            <a class="sidebar-nav-item" href="https://nathanfieldsteel.github.io/about.html">About</a>
+            <a class="sidebar-nav-item" href="http://localhost:4000/about.html">About</a>
           
         
       
@@ -72,7 +72,7 @@
       
         
           
-            <a class="sidebar-nav-item" href="https://nathanfieldsteel.github.io/posts.html">Posts</a>
+            <a class="sidebar-nav-item" href="http://localhost:4000/posts.html">Posts</a>
           
         
       
@@ -89,7 +89,7 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="https://nathanfieldsteel.github.io/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic.html">
+      <a href="http://localhost:4000/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic.html">
         The Tangent Variety to the Twisted Cubic
       </a>
     </h1>
@@ -121,7 +121,7 @@ o4 : Ideal of R
   
   <div class="post">
     <h1 class="post-title">
-      <a href="https://nathanfieldsteel.github.io/2019/10/15/27-Lines.html">
+      <a href="http://localhost:4000/2019/10/15/27-Lines.html">
         27 Lines on a Cubic Suface
       </a>
     </h1>
@@ -249,7 +249,7 @@ of one of the \(27\) lines or are outside a sphere of radius
 
 <p>To make an .stl file, all that’s left to do is <code class="highlighter-rouge">surface.save('path/to/file.stl')</code>. Since this object has no thickness, it is not yet suitable for 3D printing. We first used <a href="https://www.blender.org/">Blender</a> to <code class="highlighter-rouge">solidify</code> the mesh, resulting in something like this:</p>
 
-<p><img src="https://nathanfieldsteel.github.io/public/clebschblender.png" alt="clebsch" height="70%" width="70%" class="center-image" /></p>
+<p><img src="http://localhost:4000/public/clebschblender.png" alt="clebsch" height="70%" width="70%" class="center-image" /></p>
 
 <p>We sent the .stl file for the thickened surface to the <a href="https://formlabs.com/3d-printers/form-2/">Form
 2</a> printer at the University
@@ -257,12 +257,59 @@ of Kentucky <a href="https://ukmathlab.blogspot.com/">Math Lab</a>, and after a
 23 hour print and some careful support clipping, this was our final
 product:</p>
 
-<p><img src="https://nathanfieldsteel.github.io/public/clebsch.jpg" alt="print" height="70%" width="70%" class="center-image" /></p>
+<p><img src="http://localhost:4000/public/clebsch.jpg" alt="print" height="70%" width="70%" class="center-image" /></p>
 
 <p>We’re quite happy with the results, since it accentuates the pieces of
 the surface that contain straight lines, while still showing the local
 twisting of the surface around those lines. This model now has a home
 in the display case in the math department at UK.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://localhost:4000/2018/11/09/S4-Quilt.html">
+        Visualizing normal subgroups in S<sub>4</sub>
+      </a>
+    </h1>
+
+    <span class="post-date">09 Nov 2018</span>
+
+    <p>The <a href="https://ukmathlab.blogspot.com/">Math Lab</a> at the University of
+Kentucky has a group which visualizes mathematical ideas through
+quilting, with
+<a href="https://ukmathlab.blogspot.com/search/label/2d%20Visualization">projects</a>
+involving partitions, hyperbolic tilings, and prime sieves. One idea
+for a quilting project, originally suggested by <a href="http://www.ms.uky.edu/~dhje223/">Dave
+Jensen</a>, was to create a quilt
+representing the Cayley table for the symmetric group \(S_4\) to
+exhibit its flag of normal subgroups. This post is about an
+implementation of that idea using Mathematica.</p>
+
+<p>The <a href="https://en.wikipedia.org/wiki/Symmetric_group">symmetric group</a>
+\(S_4\) is the group of bijective functions from the set \(\lbrace
+1,2,3,4 \rbrace\) to itself. It has an index \(2\) normal subgroup
+\(A_4\) consisting of only the even permutations, and contained in
+\(A_4\) is the Klein \(4\)-group \(V\) generated by products of
+disjoint \(2\)-cycles. Taken together this describes a flag of
+normal subgroups in \(S_4\)</p>
+
+<p>\[ (1) \trianglelefteq V \trianglelefteq A_4 \trianglelefteq S_4\]</p>
+
+<p>To work with these permutation groups in Mathematica, all we need to know is that \(S_n\) can be generated by any \(2\)-cycle and any \(n\)-cycle,\(A_4\) can be generated by \((123)\) and \((124)\), and \(V\) is generated by any two of its non-identity elements.</p>
+
+<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Cycles</span><span class="p">[{{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="p">}}]</span><span class="o">;</span><span class="w">
+</span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Cycles</span><span class="p">[{{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="o">,</span><span class="w"> </span><span class="m">3</span><span class="o">,</span><span class="w"> </span><span class="m">4</span><span class="p">}}]</span><span class="o">;</span><span class="w">
+</span><span class="nv">G</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">PermutationGroup</span><span class="p">[{</span><span class="nv">a</span><span class="o">,</span><span class="w"> </span><span class="nv">b</span><span class="p">}]</span><span class="o">;</span><span class="w">
+
+</span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Cycles</span><span class="p">[{{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="o">,</span><span class="w"> </span><span class="m">3</span><span class="p">}}]</span><span class="o">;</span><span class="w">
+</span><span class="nv">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Cycles</span><span class="p">[{{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="o">,</span><span class="w"> </span><span class="m">4</span><span class="p">}}]</span><span class="o">;</span><span class="w">
+</span><span class="nv">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">PermutationGroup</span><span class="p">[{</span><span class="nv">c</span><span class="o">,</span><span class="w"> </span><span class="nv">d</span><span class="p">}]</span><span class="o">;</span><span class="w">
+
+</span><span class="nv">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Cycles</span><span class="p">[{{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="p">}</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="m">3</span><span class="o">,</span><span class="w"> </span><span class="m">4</span><span class="p">}}]</span><span class="o">;</span><span class="w">
+</span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Cycles</span><span class="p">[{{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">3</span><span class="p">}</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="m">2</span><span class="o">,</span><span class="w"> </span><span class="m">4</span><span class="p">}}]</span><span class="o">;</span><span class="w">
+</span><span class="nv">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">PermutationGroup</span><span class="p">[{</span><span class="nv">e</span><span class="o">,</span><span class="w"> </span><span class="nv">f</span><span class="p">}]</span><span class="o">;</span></code></pre></figure>
+
 
   </div>
   
