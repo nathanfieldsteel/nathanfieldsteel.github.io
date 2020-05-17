@@ -1,4 +1,4 @@
-I"X?<p>This is a summary of a project Sean Grate an I worked on, using
+I"r?<p>This is a summary of a project Sean Grate an I worked on, using
 <a href="https://www.sagemath.org">Sage</a> and a 3D printer to make a model of
 the Clebsch diagonal cubic and its \(27\) lines.</p>
 
@@ -119,7 +119,7 @@ of one of the \(27\) lines or are outside a sphere of radius
 
 <p>To make an .stl file, all that’s left to do is <code class="highlighter-rouge">surface.save('path/to/file.stl')</code>. Since this object has no thickness, it is not yet suitable for 3D printing. We first used <a href="https://www.blender.org/">Blender</a> to <code class="highlighter-rouge">solidify</code> the mesh, resulting in something like this:</p>
 
-<p><img src="http://localhost:4000/public/clebschblender.png" alt="clebsch" height="70%" width="70%" class="center-image" /></p>
+<p><img src="https://nathanfieldsteel.github.io/public/clebschblender.png" alt="clebsch" height="70%" width="70%" class="center-image" /></p>
 
 <p>We sent the .stl file for the thickened surface to the <a href="https://formlabs.com/3d-printers/form-2/">Form
 2</a> printer at the University
@@ -127,7 +127,7 @@ of Kentucky <a href="https://ukmathlab.blogspot.com/">Math Lab</a>, and after a
 23 hour print and some careful support clipping, this was our final
 product:</p>
 
-<p><img src="http://localhost:4000/public/clebsch.jpg" alt="print" height="70%" width="70%" class="center-image" /></p>
+<p><img src="https://nathanfieldsteel.github.io/public/clebsch.jpg" alt="print" height="70%" width="70%" class="center-image" /></p>
 
 <p>We’re quite happy with the results, since it accentuates the pieces of
 the surface that contain straight lines, while still showing the local
