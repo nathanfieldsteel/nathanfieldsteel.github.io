@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Nathan Fieldsteel</title>
- <link href="https://nathanfieldsteel.github.io/atom.xml" rel="self"/>
- <link href="https://nathanfieldsteel.github.io/"/>
- <updated>2020-05-17T14:21:03-04:00</updated>
- <id>https://nathanfieldsteel.github.io</id>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2020-05-17T14:22:04-04:00</updated>
+ <id>http://localhost:4000</id>
  <author>
    <name>Nathan Fieldsteel</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>The Tangent Variety to the Twisted Cubic</title>
-   <link href="https://nathanfieldsteel.github.io/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic.html"/>
+   <link href="http://localhost:4000/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic.html"/>
    <updated>2020-02-18T00:00:00-05:00</updated>
-   <id>https://nathanfieldsteel.github.io/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic</id>
+   <id>http://localhost:4000/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic</id>
    <content type="html">&lt;p&gt;The twisted cubic.&lt;/p&gt;
 
 &lt;p&gt;Get the equation of the tangent variety to the twisted cubic, using M2.&lt;/p&gt;
@@ -42,9 +42,9 @@ o4 : Ideal of R
  
  <entry>
    <title>27 Lines on a Cubic Suface</title>
-   <link href="https://nathanfieldsteel.github.io/2019/10/15/27-Lines.html"/>
+   <link href="http://localhost:4000/2019/10/15/27-Lines.html"/>
    <updated>2019-10-15T00:00:00-04:00</updated>
-   <id>https://nathanfieldsteel.github.io/2019/10/15/27-Lines</id>
+   <id>http://localhost:4000/2019/10/15/27-Lines</id>
    <content type="html">&lt;p&gt;This is a summary of a project Sean Grate an I worked on, using
 &lt;a href=&quot;https://www.sagemath.org&quot;&gt;Sage&lt;/a&gt; and a 3D printer to make a model of
 the Clebsch diagonal cubic and its \(27\) lines.&lt;/p&gt;
@@ -166,7 +166,7 @@ of one of the \(27\) lines or are outside a sphere of radius
 
 &lt;p&gt;To make an .stl file, all that’s left to do is &lt;code class=&quot;highlighter-rouge&quot;&gt;surface.save('path/to/file.stl')&lt;/code&gt;. Since this object has no thickness, it is not yet suitable for 3D printing. We first used &lt;a href=&quot;https://www.blender.org/&quot;&gt;Blender&lt;/a&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;solidify&lt;/code&gt; the mesh, resulting in something like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://nathanfieldsteel.github.io/public/clebschblender.png&quot; alt=&quot;clebsch&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/public/clebschblender.png&quot; alt=&quot;clebsch&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We sent the .stl file for the thickened surface to the &lt;a href=&quot;https://formlabs.com/3d-printers/form-2/&quot;&gt;Form
 2&lt;/a&gt; printer at the University
@@ -174,7 +174,7 @@ of Kentucky &lt;a href=&quot;https://ukmathlab.blogspot.com/&quot;&gt;Math Lab&l
 23 hour print and some careful support clipping, this was our final
 product:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://nathanfieldsteel.github.io/public/clebsch.jpg&quot; alt=&quot;print&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/public/clebsch.jpg&quot; alt=&quot;print&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We’re quite happy with the results, since it accentuates the pieces of
 the surface that contain straight lines, while still showing the local
@@ -185,9 +185,9 @@ in the display case in the math department at UK.&lt;/p&gt;
  
  <entry>
    <title>Visualizing normal subgroups in S<sub>4</sub></title>
-   <link href="https://nathanfieldsteel.github.io/2018/11/09/S4-Quilt.html"/>
+   <link href="http://localhost:4000/2018/11/09/S4-Quilt.html"/>
    <updated>2018-11-09T00:00:00-05:00</updated>
-   <id>https://nathanfieldsteel.github.io/2018/11/09/S4-Quilt</id>
+   <id>http://localhost:4000/2018/11/09/S4-Quilt</id>
    <content type="html">&lt;p&gt;The &lt;a href=&quot;https://ukmathlab.blogspot.com/&quot;&gt;Math Lab&lt;/a&gt; at the University of
 Kentucky has a group which visualizes mathematical ideas through
 quilting, with
@@ -229,7 +229,7 @@ group operation. If we form a naive Cayley table for \(S_4\) using the default o
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-wl&quot; data-lang=&quot;wl&quot;&gt;&lt;span class=&quot;nb&quot;&gt;ArrayPlot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;GroupMultiplicationTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ColorFunction&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ThermometerColors&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://nathanfieldsteel.github.io/public/naivecayley.png&quot; alt=&quot;naivecayley&quot; height=&quot;80%&quot; width=&quot;80%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/public/naivecayley.png&quot; alt=&quot;naivecayley&quot; height=&quot;80%&quot; width=&quot;80%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This Cayley table seems to have some structure, especially in the way
 that the top six rows seem to be organized by color into squares. It
@@ -251,7 +251,7 @@ in the Cayley table.&lt;/p&gt;
         &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;40&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Reverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;#2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
     &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Reverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;elements&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Transpose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}]}]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://nathanfieldsteel.github.io/public/arbitrarycolors.png&quot; alt=&quot;arbitrarycolors&quot; height=&quot;20%&quot; width=&quot;20%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/public/arbitrarycolors.png&quot; alt=&quot;arbitrarycolors&quot; height=&quot;20%&quot; width=&quot;20%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Note that for the built-in ordering of \(S_4\), the first six
 elements are the subgroup \(S_3 \leqslant S_4\) of permutations that
@@ -342,7 +342,7 @@ color palette, we see&lt;/p&gt;
        &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;40&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Reverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;#2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
     &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Reverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}]}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Transpose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}]}]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://nathanfieldsteel.github.io/public/sixcolors.png&quot; alt=&quot;sixcolors&quot; height=&quot;20%&quot; width=&quot;20%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/public/sixcolors.png&quot; alt=&quot;sixcolors&quot; height=&quot;20%&quot; width=&quot;20%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Finally, making a new Cayley table for \(S_4\) with this color
 palette, and with the elements ordered in this way, we end up with this:&lt;/p&gt;
@@ -350,7 +350,7 @@ palette, and with the elements ordered in this way, we end up with this:&lt;/p&g
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-wl&quot; data-lang=&quot;wl&quot;&gt;&lt;span class=&quot;nv&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]][[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ArrayPlot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ColorFunction&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;sixcolors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://nathanfieldsteel.github.io/public/cayley.png&quot; alt=&quot;goodcayley&quot; height=&quot;80%&quot; width=&quot;80%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/public/cayley.png&quot; alt=&quot;goodcayley&quot; height=&quot;80%&quot; width=&quot;80%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This Cayley table for \(S_4\) shows the flag of normal subgroup as
 we hoped it would. It’s still a multiplication table for the group
