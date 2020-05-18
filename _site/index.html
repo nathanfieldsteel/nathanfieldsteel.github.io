@@ -391,7 +391,9 @@ subdivided into three cosets of \(V\) each.</p>
     </span><span class="nb">PermutationProduct</span><span class="p">[</span><span class="nb">GroupElements</span><span class="p">[</span><span class="nv">G</span><span class="p">][[</span><span class="nv">idx</span><span class="p">[[</span><span class="nv">i</span><span class="p">]]]]</span><span class="o">,</span><span class="w"> 
      </span><span class="nb">GroupElements</span><span class="p">[</span><span class="nv">G</span><span class="p">][[</span><span class="nv">idx</span><span class="p">[[</span><span class="nv">j</span><span class="p">]]]]]]</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">i</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">24</span><span class="p">}</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">j</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">24</span><span class="p">}]</span><span class="o">;</span></code></pre></figure>
 
-<p>Inspecting the index list <code class="highlighter-rouge">idx</code> , we see that it looks like:</p>
+<p>The index list <code class="highlighter-rouge">idx</code> is itself a permutation, which tells us how
+to re-order the elements of \(S_4\) for our purposes. Inspecting
+<code class="highlighter-rouge">idx</code> we see:</p>
 
 <figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="p">{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">8</span><span class="o">,</span><span class="w"> </span><span class="m">17</span><span class="o">,</span><span class="w"> </span><span class="m">24</span><span class="o">,</span><span class="w"> </span><span class="m">4</span><span class="o">,</span><span class="w"> </span><span class="m">13</span><span class="o">,</span><span class="w"> </span><span class="m">21</span><span class="o">,</span><span class="w"> </span><span class="m">12</span><span class="o">,</span><span class="w"> </span><span class="m">5</span><span class="o">,</span><span class="w"> </span><span class="m">20</span><span class="o">,</span><span class="w"> </span><span class="m">9</span><span class="o">,</span><span class="w"> </span><span class="m">16</span><span class="o">,</span><span class="w"> </span><span class="m">3</span><span class="o">,</span><span class="w">
 </span><span class="m">14</span><span class="o">,</span><span class="w"> </span><span class="m">11</span><span class="o">,</span><span class="w"> </span><span class="m">22</span><span class="o">,</span><span class="w"> </span><span class="m">6</span><span class="o">,</span><span class="w"> </span><span class="m">19</span><span class="o">,</span><span class="w"> </span><span class="m">15</span><span class="o">,</span><span class="w"> </span><span class="m">10</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="o">,</span><span class="w"> </span><span class="m">7</span><span class="o">,</span><span class="w"> </span><span class="m">23</span><span class="o">,</span><span class="w"> </span><span class="m">18</span><span class="p">}</span></code></pre></figure>
@@ -407,9 +409,9 @@ each other, as do the colors \(c_4, c_5\) and \(c_6\), but with
 some distinction between the two triplets to distinguish the cosets of
 \(A_4\).</p>
 
-<p>After making a few somewhat arbitrary choices, we might choose reds,
-oranges and yellows for the cosets of \(V\) in \(A_4\), and blues
-and greens for the cosets of \(V\) that aren’t in \(A_4\)</p>
+<p>These are just aesthetic choices, but we might choose some reds,
+oranges and yellows for the cosets of \(V\) in \(A_4\), and some
+blues and greens for the cosets of \(V\) that aren’t in \(A_4.\)</p>
 
 <figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">colorlist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Join</span><span class="p">[</span><span class="nb">NestList</span><span class="p">[</span><span class="nb">Lighter</span><span class="p">[</span><span class="nf">#</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">6</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;,</span><span class="w"> </span><span class="nb">RGBColor</span><span class="p">[</span><span class="s">"#EF476F"</span><span class="p">]</span><span class="o">,</span><span class="w"> </span><span class="m">3</span><span class="p">]</span><span class="o">,</span><span class="w">
    </span><span class="nb">NestList</span><span class="p">[</span><span class="nb">Lighter</span><span class="p">[</span><span class="nf">#</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">6</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;,</span><span class="w"> </span><span class="nb">RGBColor</span><span class="p">[</span><span class="s">"#F78C6B"</span><span class="p">]</span><span class="o">,</span><span class="w"> </span><span class="m">3</span><span class="p">]</span><span class="o">,</span><span class="w">
@@ -420,7 +422,8 @@ and greens for the cosets of \(V\) that aren’t in \(A_4\)</p>
 </span><span class="nv">sixcolors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Function</span><span class="p">[</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="nb">Blend</span><span class="p">[</span><span class="nv">colorlist</span><span class="o">,</span><span class="w"> </span><span class="nv">x</span><span class="p">]]</span><span class="o">;</span></code></pre></figure>
 
 <p>Looking at our re-ordered list of elements of \(S_4\) with this new
-color palette, we see</p>
+color palette, we see that it more or less accomplishes what we set
+out to accomplish.</p>
 
 <figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nb">ArrayPlot</span><span class="p">[({</span><span class="nb">Table</span><span class="p">[</span><span class="nv">n</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">n</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">24</span><span class="p">}]}</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Transpose</span><span class="p">)</span><span class="o">/</span><span class="m">24</span><span class="o">,</span><span class="w"> 
  </span><span class="nb">ColorFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">sixcolors</span><span class="o">,</span><span class="w"> </span><span class="nb">AspectRatio</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">7</span><span class="o">,</span><span class="w"> 
@@ -433,7 +436,7 @@ color palette, we see</p>
 <p><img src="http://localhost:4000/public/sixcolors.png" alt="sixcolors" height="20%" width="20%" class="center-image" /></p>
 
 <p>Finally, making a new Cayley table for \(S_4\) with this color
-palette, and with the elements ordered in this way, we end up with this:</p>
+palette and element re-ordering, we end up with this:</p>
 
 <figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">loc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Position</span><span class="p">[</span><span class="nv">idx</span><span class="o">,</span><span class="w"> </span><span class="nf">#</span><span class="p">][[</span><span class="m">1</span><span class="p">]][[</span><span class="m">1</span><span class="p">]]</span><span class="w"> </span><span class="o">&amp;;</span><span class="w">
 </span><span class="nb">ArrayPlot</span><span class="p">[</span><span class="nb">Map</span><span class="p">[</span><span class="nv">loc</span><span class="o">,</span><span class="w"> </span><span class="nv">M</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="m">2</span><span class="p">}]</span><span class="o">/</span><span class="m">24</span><span class="o">,</span><span class="w"> </span><span class="nb">ColorFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">sixcolors</span><span class="p">]</span></code></pre></figure>
@@ -443,7 +446,7 @@ palette, and with the elements ordered in this way, we end up with this:</p>
 <p>This Cayley table for \(S_4\) shows the flag of normal subgroup as
 we hoped it would. It’s still a multiplication table for the group
 \(S_4\), though with the elements listed in a different order. The
-top left \(12\times 12\) block is the Cayley table for \(A_4\),
+top left \(12\times 12\) block is a Cayley table for \(A_4\),
 and the top left \(4 \times 4\) is a Cayley table for \(V\).
 Furthermore, the four \(12 \times 12\) blocks form a Cayley table of
 the quotient group \(S_4 / A_4\), while the thirty-six \(4 \times
