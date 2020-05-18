@@ -3,25 +3,18 @@ layout: post
 title: The Tangent Variety to the Twisted Cubic
 ---
 
-The twisted cubic.
+The [twisted cubic curve](https://en.wikipedia.org/wiki/Twisted_cubic)
+is a famous example (and counterexample) in algebraic geometry, usually described parametrically as image of the map \\(\vec{r} : \mathbb{P}^1 \rightarrow \mathbb{P}^3\\) given by
 
-Get the equation of the tangent variety to the twisted cubic, using M2.
+\\[ \vec{r}([s:t]) = [s^3, s^2 t, s t^2, t^3],\\]
 
+though typically for visualization purposes, we'll restrict our
+attention to the affine patch where \\(s \not = 0\\), where we have
+the more familiar parametrization \\(\vec{r} : \mathbb{R}^1
+\rightarrow \mathbb{R}^3\\) given by
 
-{% raw %}
-    i1 : R = QQ[X,Y,Z];
-    
-    i2 : S = QQ[s,t];
+\\[\vec{r}(t) = (t, t^2, t^3).\\]
 
-    i3 : f = map(S,R,matrix {{t+s, t^2 + 2*s*t, t^3 + 3*s*t^2}});
-    
-    o3 : RingMap S <--- R
-    
-    i4 : ker f
-    
-                 2 2     3      3             2
-    o4 = ideal(3X Y  - 4X Z - 4Y  + 6X*Y*Z - Z )
-    
-    o4 : Ideal of R
-{% endraw %}
+Sean Grate and I were thinking about several ideas for a 3D printed
+object that demonstrates something about the twisted cubic.
 

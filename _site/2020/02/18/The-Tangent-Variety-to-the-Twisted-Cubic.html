@@ -85,25 +85,20 @@
       <div class="post">
   <h1 class="post-title">The Tangent Variety to the Twisted Cubic</h1>
   <span class="post-date">18 Feb 2020</span>
-  <p>The twisted cubic.</p>
+  <p>The <a href="https://en.wikipedia.org/wiki/Twisted_cubic">twisted cubic curve</a>
+is a famous example (and counterexample) in algebraic geometry, usually described parametrically as image of the map \(\vec{r} : \mathbb{P}^1 \rightarrow \mathbb{P}^3\) given by</p>
 
-<p>Get the equation of the tangent variety to the twisted cubic, using M2.</p>
+<p>\[ \vec{r}([s:t]) = [s^3, s^2 t, s t^2, t^3],\]</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>i1 : R = QQ[X,Y,Z];
+<p>though typically for visualization purposes, we’ll restrict our
+attention to the affine patch where \(s \not = 0\), where we have
+the more familiar parametrization \(\vec{r} : \mathbb{R}^1
+\rightarrow \mathbb{R}^3\) given by</p>
 
-i2 : S = QQ[s,t];
+<p>\[\vec{r}(t) = (t, t^2, t^3).\]</p>
 
-i3 : f = map(S,R,matrix {{t+s, t^2 + 2*s*t, t^3 + 3*s*t^2}});
-
-o3 : RingMap S &lt;--- R
-
-i4 : ker f
-
-             2 2     3      3             2
-o4 = ideal(3X Y  - 4X Z - 4Y  + 6X*Y*Z - Z )
-
-o4 : Ideal of R
-</code></pre></div></div>
+<p>Sean Grate and I were thinking about several ideas for a 3D printed
+object that demonstrates something about the twisted cubic.</p>
 
 
 </div>
