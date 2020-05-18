@@ -258,11 +258,11 @@ a.sidebar-nav-item:focus {
 
 /* Custom Theme*/
 .theme-base-custom .sidebar {
-  background-color: #990000;
+  background-color: #1C4F5E;
 }
 .theme-base-custom .content a,
 .theme-base-custom .related-posts li a:hover {
-    color: #990000;
+    color: #1C4F5E;
 }
 
 
