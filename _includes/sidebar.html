@@ -2,6 +2,21 @@
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <h1>
+	
+	<style>
+	  .profile-img {
+	      border-radius: 50%;
+	      display: block;
+	      margin-left: auto;
+	      margin-right: auto;
+	      width: 100%;
+	      max-width : 14rem;
+	      height: auto;
+	  }
+	</style>
+	
+	<img src="{{ site.baseurl }}public/profile.jpg" alt="hi" class="profile-img"/>
+	
         <a href="https://nathanfieldsteel.github.io">
           {{ site.sidebar-name }}
         </a>
@@ -10,6 +25,7 @@
     </div>
 
     <nav class="sidebar-nav">
+      
       <a class="sidebar-nav-item{% if page.title == "Home" %} active{% endif %}" href="https://nathanfieldsteel.github.io">Home</a>
 
       {% comment %}
