@@ -11,23 +11,23 @@ usually described parametrically as image of the map
 \\[ [s:t] \mapsto [s^3 : s^2 t : s t^2 : t^3],\\]
 
 though typically for visualization purposes, we'll restrict our
-attention to the affine patch where \\(s \not = 0\\), where we have
+attention to the affine patch where \\(s \not = 0,\\) where we have
 the more familiar parametrization \\(\vec{r} : \mathbb{R}^1
 \rightarrow \mathbb{R}^3\\) given by
 
 \\[\vec{r}(t) = (t, t^2, t^3).\\]
 
 Sean Grate and I were thinking about ideas for a 3D printed object
-that demonstrates something about the twisted cubic \\(C\\). Right now
+that demonstrates something about the twisted cubic \\(C.\\) Right now
 we're working on printing a model of the tangent variety to the
 twisted cubic which shows this surface as the union of of the tangent
 lines to the curve \\(C\\) itself.
 
 To start, we'll need parametric equations for the twisted cubic and
 it's tangent vector. The model we'll eventually be making will be
-bounded by the cube with vertices \\((\pm 1, \pm 1, \pm 1)\\), and
+bounded by the cube with vertices \\((\pm 1, \pm 1, \pm 1),\\) and
 we'll be making this model out of cylindrical tubes of a fixed radius
-\\(\epsilon\\), so we set up a region function and a choose a
+\\(\epsilon,\\) so we set up a region function and a choose a
 parameter accordingly.
 
 {% highlight wl %}
@@ -64,7 +64,7 @@ curve = ParametricPlot3D[r, {t, -1, 1},
 
 Instead of plotting the tangent variety itself as a surface, we'll
 instead plot a dense collection of tangent lines. For a fixed value of
-\\(t\\), we get a tangent line to \\(C\\) is parametrized by
+\\(t,\\) we get a tangent line to \\(C\\) is parametrized by
 
 \\[ \\ell(s) = \\vec{r}(t) + s \\cdot\\frac{d\\vec{r}}{dt}(t).\\]
 
@@ -128,7 +128,7 @@ the tangent variety.
 {% endraw %}
 
 To find the intersection of this surface with the faces of our
-bounding cube, we'll set \\(x,y\\) or \\(z\\) equal to \\(\pm 1\\),
+bounding cube, we'll set \\(x,y\\) or \\(z\\) equal to \\(\pm 1,\\)
 set the resulting expression equal to zero, and solve for one of the
 remaining variables.
 
@@ -204,7 +204,7 @@ facecurves = {
 
 At the intersection points of these various facecurves, there's a bit
 of artifacting we'd like to avoid, which we accomplish by covering
-these intersection points with a sphere of radius \\(\epsilon\\). That
+these intersection points with a sphere of radius \\(\epsilon.\\) That
 way, the corners will be smooth instead of looking like two
 overlapping cylinders.
 
