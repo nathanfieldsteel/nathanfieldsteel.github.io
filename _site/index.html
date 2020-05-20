@@ -110,9 +110,11 @@
     <span class="post-date">18 Feb 2020</span>
 
     <p>The <a href="https://en.wikipedia.org/wiki/Twisted_cubic">twisted cubic curve</a>
-is a famous example (and counterexample) in algebraic geometry, usually described parametrically as image of the map \(\vec{r} : \mathbb{P}^1 \rightarrow \mathbb{P}^3\) given by</p>
+is a famous example (and counterexample) in algebraic geometry,
+usually described parametrically as image \(C\) of the map
+\(\vec{r} : \mathbb{P}^1 \rightarrow \mathbb{P}^3\) given by</p>
 
-<p>\[ \vec{r}([s:t]) = [s^3, s^2 t, s t^2, t^3],\]</p>
+<p>\[ \vec{r}([s:t]) = [s^3 : s^2 t : s t^2 : t^3],\]</p>
 
 <p>though typically for visualization purposes, we’ll restrict our
 attention to the affine patch where \(s \not = 0\), where we have
@@ -130,8 +132,203 @@ out to be extremely difficult to do in the real locus without actually
 separating the tangent variety into three or more pieces, some of them
 quite small. So we’ve shelved that idea for now, and we’re currently
 working on printing a model of the tangent variety to the twisted
-cubic which accentuates the fact that it’s a union of lines tangent to
-the curve itself.</p>
+cubic which accentuates the definition of this surface as the union of
+of the tangent lines to the curve \(C\) itself.</p>
+
+<p>For starters, we’ll need the equation of the twisted cubic and the
+equation of it’s tangent vector. The model we’ll eventually be making
+will be bounded by the cube with vertices \((\pm 1, \pm 1, \pm 1)\),
+and we’ll be making this model out of cylindrical tubes of a fixed
+radius \(\epsilon\), so we set up a region function and a parameter
+accordingly.</p>
+
+<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">twistedcubic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nf">#</span><span class="o">,</span><span class="w"> </span><span class="nf">#</span><span class="o">^</span><span class="m">2</span><span class="o">,</span><span class="w"> </span><span class="nf">#</span><span class="o">^</span><span class="m">3</span><span class="p">}</span><span class="w"> </span><span class="o">&amp;;</span><span class="w">
+</span><span class="nv">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">D</span><span class="p">[</span><span class="nv">twistedcubic</span><span class="o">,</span><span class="w"> </span><span class="nv">t</span><span class="p">]</span><span class="o">;</span><span class="w">
+
+</span><span class="nv">boundingcube</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Function</span><span class="p">[{</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="nv">y</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">}</span><span class="o">,</span><span class="w">
+   </span><span class="nb">Abs</span><span class="p">[</span><span class="nv">x</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">Abs</span><span class="p">[</span><span class="nv">y</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">Abs</span><span class="p">[</span><span class="nv">z</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">1</span><span class="p">]</span><span class="o">;</span><span class="w">
+</span><span class="nv">ep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">40</span><span class="o">;</span></code></pre></figure>
+
+<p>For the twisted cubic itself, it’s straightforward to make a
+parametric plot.</p>
+
+<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">curve</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ParametricPlot3D</span><span class="p">[</span><span class="nv">twistedcubic</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">t</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w"> 
+   </span><span class="nb">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{{</span><span class="o">-</span><span class="m">1.1</span><span class="o">,</span><span class="w"> </span><span class="m">1.1</span><span class="p">}</span><span class="o">,</span><span class="w"> 
+                 </span><span class="p">{</span><span class="o">-</span><span class="m">1.1</span><span class="o">,</span><span class="w"> </span><span class="m">1.1</span><span class="p">}</span><span class="o">,</span><span class="w">
+                 </span><span class="p">{</span><span class="o">-</span><span class="m">1.1</span><span class="o">,</span><span class="w"> </span><span class="m">1.1</span><span class="p">}}</span><span class="o">,</span><span class="w">
+   </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
+   </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
+   </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">50</span><span class="p">]</span><span class="o">;</span></code></pre></figure>
+
+<p>Instead of plotting the tangent variety itself as a surface, we’ll
+instead create a dense collection of tangent lines. For a fixed value
+of \(t\), we get a tangent line to \(C\) is parametrized by</p>
+
+<p>\[ \ell(s) = \vec{r}(t) + s \vec{r}’(t).\]</p>
+
+<p>We use this to create our collection of tangent lines.</p>
+
+<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">tangents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
+   </span><span class="nb">ParametricPlot3D</span><span class="p">[</span><span class="nv">twistedcubic</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="nv">v</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">s</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">5</span><span class="o">,</span><span class="w"> </span><span class="m">5</span><span class="p">}</span><span class="o">,</span><span class="w"> 
+    </span><span class="nb">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{{</span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
+                  </span><span class="p">{</span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
+                  </span><span class="p">{</span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}}</span><span class="o">,</span><span class="w">
+    </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
+    </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
+    </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">60</span><span class="p">]</span><span class="o">,</span><span class="w">
+   </span><span class="p">{</span><span class="nv">t</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">5</span><span class="o">,</span><span class="w"> </span><span class="m">5</span><span class="o">,</span><span class="w"> </span><span class="m">0.059</span><span class="p">}]</span><span class="o">;</span></code></pre></figure>
+
+<p>When we inspect what we have so far, we see that the curve together
+with this collection of tangent lines has some disconnected pieces, so
+it isn’t yet suitable for 3D printing.</p>
+
+<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="w">	</span><span class="nb">Show</span><span class="p">[</span><span class="nv">curve</span><span class="o">,</span><span class="nv">tangents</span><span class="o">,</span><span class="nb">Boxed</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="o">,</span><span class="w"> </span><span class="nb">Axes</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="p">]</span><span class="w">
+	</span></code></pre></figure>
+
+<p><img src="http://localhost:4000/public/tangentlines.png" alt="tangentlines" height="70%" width="70%" class="center-image" /></p>
+
+<p>To fix this, we’d like to add one more component to our model. We want
+to add the intersection of the tangent variety with the bounding
+box. Finding this intersection will be much easier if we know the
+implicit equation of the tangent variety, which we can get from the
+parametrization using Macaulay2. Our parametrization defines a ring
+map \(\mathbb{R}[x,y,z] \rightarrow \mathbb{R}[s,t],\) and the
+kernel of this ring map will be generated by the implicit equation of
+the tangent variety.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>i1 : R = QQ[X,Y,Z];
+
+i2 : S = QQ[s,t];
+
+i3 : f = map(S,R,matrix {{t+s, t^2 + 2*s*t, t^3 + 3*s*t^2}});
+
+o3 : RingMap S &lt;--- R
+
+i4 : ker f
+             2 2     3      3             2
+o4 = ideal(3X Y  - 4X Z - 4Y  + 6X*Y*Z - Z )
+
+o4 : Ideal of R
+</code></pre></div></div>
+
+<p>To find the intersection of this surface with the faces of our
+bounding cube, we’ll set \(x,y\) or \(z\) to \(\pm 1\), set the
+resulting equal to zero, and solve for one of the remaining
+variables.</p>
+
+<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">tangentvariety</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="nv">x</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="nv">y</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="nv">x</span><span class="o">^</span><span class="m">3</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="nv">y</span><span class="o">^</span><span class="m">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">z</span><span class="o">^</span><span class="m">2</span><span class="o">;</span><span class="w">
+
+</span><span class="nv">face1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Solve</span><span class="p">[(</span><span class="nv">tangentvariety</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Flatten</span><span class="o">;</span><span class="w">
+</span><span class="nv">face2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Solve</span><span class="p">[(</span><span class="nv">tangentvariety</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Flatten</span><span class="o">;</span><span class="w">
+</span><span class="nv">face3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Solve</span><span class="p">[(</span><span class="nv">tangentvariety</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Flatten</span><span class="o">;</span><span class="w">
+</span><span class="nv">face4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Solve</span><span class="p">[(</span><span class="nv">tangentvariety</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Flatten</span><span class="o">;</span><span class="w">
+</span><span class="nv">face5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Solve</span><span class="p">[(</span><span class="nv">tangentvariety</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="o">,</span><span class="w"> </span><span class="nv">y</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Flatten</span><span class="o">;</span><span class="w">
+</span><span class="nv">face6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Solve</span><span class="p">[(</span><span class="nv">tangentvariety</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="o">,</span><span class="w"> </span><span class="nv">y</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Flatten</span><span class="o">;</span></code></pre></figure>
+
+<p>What we get can be used to parametrize the different components of the
+intersection of the tangent variety with the bounding cube.</p>
+
+<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">facecurves1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
+   </span><span class="nb">ParametricPlot3D</span><span class="p">[({</span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="nv">y</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">}</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">p</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">y</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
+    </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
+    </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
+    </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">40</span><span class="p">]</span><span class="o">,</span><span class="w">
+   </span><span class="p">{</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">face1</span><span class="p">}]</span><span class="o">;</span><span class="w">
+</span><span class="nv">facecurves2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
+   </span><span class="nb">ParametricPlot3D</span><span class="p">[({</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="nv">y</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">}</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">p</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">y</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
+    </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
+    </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
+    </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">40</span><span class="p">]</span><span class="o">,</span><span class="w">
+   </span><span class="p">{</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">face2</span><span class="p">}]</span><span class="o">;</span><span class="w">
+</span><span class="nv">facecurves3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
+   </span><span class="nb">ParametricPlot3D</span><span class="p">[({</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">}</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">p</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
+    </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
+    </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
+    </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">40</span><span class="p">]</span><span class="o">,</span><span class="w">
+   </span><span class="p">{</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">face3</span><span class="p">}]</span><span class="o">;</span><span class="w">
+</span><span class="nv">facecurves4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
+   </span><span class="nb">ParametricPlot3D</span><span class="p">[({</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">}</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">p</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
+    </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
+    </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
+    </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">40</span><span class="p">]</span><span class="o">,</span><span class="w">
+   </span><span class="p">{</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">face4</span><span class="p">}]</span><span class="o">;</span><span class="w">
+</span><span class="nv">facecurves5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
+   </span><span class="nb">ParametricPlot3D</span><span class="p">[({</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="nv">y</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">}</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">p</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
+    </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
+    </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
+    </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">40</span><span class="p">]</span><span class="o">,</span><span class="w">
+   </span><span class="p">{</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">face5</span><span class="p">}]</span><span class="o">;</span><span class="w">
+</span><span class="nv">facecurves6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
+   </span><span class="nb">ParametricPlot3D</span><span class="p">[({</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="nv">y</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">p</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
+    </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
+    </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
+    </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">40</span><span class="p">]</span><span class="o">,</span><span class="w">
+   </span><span class="p">{</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">face6</span><span class="p">}]</span><span class="o">;</span><span class="w">
+
+</span><span class="nv">facecurves</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="nv">facecurves1</span><span class="o">,</span><span class="w">
+   </span><span class="nv">facecurves2</span><span class="o">,</span><span class="w">
+   </span><span class="nv">facecurves3</span><span class="o">,</span><span class="w">
+   </span><span class="nv">facecurves4</span><span class="o">,</span><span class="w">
+   </span><span class="nv">facecurves5</span><span class="o">,</span><span class="w">
+   </span><span class="nv">facecurves6</span><span class="w">
+   </span><span class="p">}</span><span class="o">;</span></code></pre></figure>
+
+<p>At the intersection points of these various facecurves, there’s a bit
+of artifacting we’d like to avoid, which we accomplish by covering
+these intersection points with a sphere of radius \(\epsilon\). That
+way, the corners will be smooth instead of looking like two
+overlapping cylinders.</p>
+
+<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">cornerpoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="p">{</span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
+   </span><span class="p">{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
+   </span><span class="p">{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">0.6569</span><span class="p">}</span><span class="o">,</span><span class="w">
+   </span><span class="p">{</span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">0.6569</span><span class="p">}</span><span class="o">,</span><span class="w">
+   </span><span class="p">{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">0.5408</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
+   </span><span class="p">{</span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">0.5408</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
+   </span><span class="p">{</span><span class="o">-</span><span class="m">0.5408</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
+   </span><span class="p">{</span><span class="m">0.5408</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="o">;</span><span class="w">
+
+</span><span class="nv">cornerdots</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
+	</span><span class="nb">Graphics3D</span><span class="p">[</span><span class="nb">Sphere</span><span class="p">[</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">ep</span><span class="p">]]</span><span class="o">,</span><span class="w">
+               </span><span class="p">{</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">cornerpoints</span><span class="p">}]</span><span class="o">;</span></code></pre></figure>
+
+<p>The model we want is comprised of the twisted cubic curve, the
+collection of tangent lines, the curves of intersection between the
+tangent variety and the bounding cube, and these small corrective
+spheres.</p>
+
+<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">components</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nv">curve</span><span class="o">,</span><span class="w"> 
+</span><span class="nv">tangents</span><span class="o">,</span><span class="w"> 
+</span><span class="nv">cornerdots</span><span class="o">,</span><span class="w"> 
+</span><span class="nv">facecurves</span><span class="w">
+</span><span class="p">}</span><span class="o">;</span><span class="w">
+
+</span><span class="nb">Show</span><span class="p">[</span><span class="nv">components</span><span class="o">,</span><span class="w"> </span><span class="nb">Boxed</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="o">,</span><span class="w"> </span><span class="nb">Axes</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="p">]</span></code></pre></figure>
+
+<p><img src="http://localhost:4000/public/finaltangentlines.png" alt="finaltangentlines" height="80%" width="80%" class="center-image" /></p>
+
+<p>This can be exported to an stl file and 3D printed. (put picture
+here). It can be hard to understand what object looks like from a
+static picture, even a picture of a physical object. So for the
+purpose of this post, here’s a .gif made of a parametrized family of
+different views of the model.</p>
+
+<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">frames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
+   </span><span class="nb">Show</span><span class="p">[</span><span class="nv">components</span><span class="o">,</span><span class="w">
+   </span><span class="nb">Boxed</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="o">,</span><span class="w">
+   </span><span class="nb">Axes</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="o">,</span><span class="w"> 
+   </span><span class="nb">ViewVector</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="m">3</span><span class="w"> </span><span class="nb">Cos</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="o">,</span><span class="w">
+                  </span><span class="m">3</span><span class="w"> </span><span class="nb">Sin</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="o">,</span><span class="w">
+                  </span><span class="m">6</span><span class="w"> </span><span class="nb">Sin</span><span class="p">[</span><span class="nv">t</span><span class="o">/</span><span class="m">2</span><span class="p">]}]</span><span class="o">,</span><span class="w">
+                  </span><span class="p">{</span><span class="nv">t</span><span class="o">,</span><span class="w"> </span><span class="m">0</span><span class="o">,</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="nb">Pi</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="nb">Pi</span><span class="o">/</span><span class="m">60</span><span class="p">}]</span><span class="o">;</span><span class="w">
+
+</span><span class="nv">animation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ListAnimate</span><span class="p">[</span><span class="nv">frames</span><span class="o">,</span><span class="w"> </span><span class="m">24</span><span class="p">]</span><span class="o">;</span></code></pre></figure>
+
+<p><img src="http://localhost:4000/public/animation.gif" alt="animation" height="80%" width="80%" class="center-image" /></p>
 
   </div>
   
