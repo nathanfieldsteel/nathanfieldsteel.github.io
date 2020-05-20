@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Tangent Variety to the Twisted Cubic
+title: The tangent variety to the twisted cubic
 ---
 
 The [twisted cubic curve](https://en.wikipedia.org/wiki/Twisted_cubic)
