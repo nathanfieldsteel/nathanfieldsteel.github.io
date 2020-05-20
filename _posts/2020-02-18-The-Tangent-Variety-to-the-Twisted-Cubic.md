@@ -5,10 +5,10 @@ title: The tangent variety to the twisted cubic
 
 The [twisted cubic curve](https://en.wikipedia.org/wiki/Twisted_cubic)
 is a famous example (and counterexample) in algebraic geometry,
-usually described parametrically as image \\(C\\) of the map
+usually described parametrically as image of the map
 \\(\vec{r} : \mathbb{P}^1 \rightarrow \mathbb{P}^3\\) given by
 
-\\[ \vec{r}([s:t]) = [s^3 : s^2 t : s t^2 : t^3],\\]
+\\[ [s:t] \mapsto [s^3 : s^2 t : s t^2 : t^3],\\]
 
 though typically for visualization purposes, we'll restrict our
 attention to the affine patch where \\(s \not = 0\\), where we have
@@ -17,33 +17,29 @@ the more familiar parametrization \\(\vec{r} : \mathbb{R}^1
 
 \\[\vec{r}(t) = (t, t^2, t^3).\\]
 
-Sean Grate and I were thinking about several ideas for a 3D printed
-object that demonstrates something about the twisted cubic. We
-initially had plans to make a two-piece model showing the tangent
-variety to the twisted cubic sliced in half with a hyperplane section,
-so that the cross-section is a tri-cuspidal quartic curve. This turns
-out to be extremely difficult to do in the real locus without actually
-separating the tangent variety into three or more pieces, some of them
-quite small. So we've shelved that idea for now, and we're currently
-working on printing a model of the tangent variety to the twisted
-cubic which accentuates the definition of this surface as the union of
-of the tangent lines to the curve \\(C\\) itself.
+Sean Grate and I were thinking about ideas for a 3D printed object
+that demonstrates something about the twisted cubic \\(C\\). Right now
+we're working on printing a model of the tangent variety to the
+twisted cubic which shows this surface as the union of of the tangent
+lines to the curve \\(C\\) itself.
 
-For starters, we'll need the equation of the twisted cubic and the
-equation of it's tangent vector. The model we'll eventually be making
-will be bounded by the cube with vertices \\((\pm 1, \pm 1, \pm 1)\\),
-and we'll be making this model out of cylindrical tubes of a fixed
-radius \\(\epsilon\\), so we set up a region function and a parameter
-accordingly.
+To start, we'll need parametric equations for the twisted cubic and
+it's tangent vector. The model we'll eventually be making will be
+bounded by the cube with vertices \\((\pm 1, \pm 1, \pm 1)\\), and
+we'll be making this model out of cylindrical tubes of a fixed radius
+\\(\epsilon\\), so we set up a region function and a choose a
+parameter accordingly.
 
 {% highlight wl %}
 {% raw %}
 
-twistedcubic = {#, #^2, #^3} &;
-v = D[twistedcubic, t];
+r = {t, t^2, t^3};
+v = D[r, t];
 
 boundingcube = Function[{x, y, z},
-   Abs[x] <= 1 && Abs[y] <= 1 && Abs[z] <= 1];
+   Abs[x] <= 1 &&
+   Abs[y] <= 1 &&
+   Abs[z] <= 1];
 ep = 1/40;
 
 {% endraw %}
@@ -55,7 +51,7 @@ parametric plot.
 {% highlight wl%}
 {% raw %}
 
-curve = ParametricPlot3D[twistedcubic, {t, -1, 1}, 
+curve = ParametricPlot3D[r, {t, -1, 1}, 
    PlotRange -> {{-1.1, 1.1}, 
                  {-1.1, 1.1},
                  {-1.1, 1.1}},
@@ -67,10 +63,10 @@ curve = ParametricPlot3D[twistedcubic, {t, -1, 1},
 {% endhighlight %}
 
 Instead of plotting the tangent variety itself as a surface, we'll
-instead create a dense collection of tangent lines. For a fixed value
-of \\(t\\), we get a tangent line to \\(C\\) is parametrized by
+instead plot a dense collection of tangent lines. For a fixed value of
+\\(t\\), we get a tangent line to \\(C\\) is parametrized by
 
-\\[ \\ell(s) = \\vec{r}(t) + s \\vec{r}'(t).\\]
+\\[ \\ell(s) = \\vec{r}(t) + s \\cdot\\frac{d\\vec{r}}{dt}(t).\\]
 
 We use this to create our collection of tangent lines.
 
@@ -78,7 +74,7 @@ We use this to create our collection of tangent lines.
 {% raw %}
 
 tangents = Table[
-   ParametricPlot3D[twistedcubic + s v, {s, -5, 5}, 
+   ParametricPlot3D[r + s v, {s, -5, 5}, 
     PlotRange -> {{-1, 1},
                   {-1, 1},
                   {-1, 1}},
@@ -132,9 +128,9 @@ the tangent variety.
 {% endraw %}
 
 To find the intersection of this surface with the faces of our
-bounding cube, we'll set \\(x,y\\) or \\(z\\) to \\(\pm 1\\), set the
-resulting equal to zero, and solve for one of the remaining
-variables.
+bounding cube, we'll set \\(x,y\\) or \\(z\\) equal to \\(\pm 1\\),
+set the resulting expression equal to zero, and solve for one of the
+remaining variables.
 
 {% highlight wl %}
 {% raw %}
@@ -227,8 +223,8 @@ cornerpoints = {
    };
 
 cornerdots = Table[
-	Graphics3D[Sphere[p, ep]],
-               {p, cornerpoints}];
+    Graphics3D[Sphere[p, ep]],
+    {p, cornerpoints}];
 
 {% endraw %}
 {% endhighlight %}
