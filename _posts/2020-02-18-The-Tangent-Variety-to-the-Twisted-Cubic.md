@@ -238,10 +238,10 @@ spheres.
 {% raw %}
 
 components = {
-curve, 
-tangents, 
-cornerdots, 
-facecurves
+	curve, 
+	tangents, 
+	cornerdots, 
+	facecurves
 };
 
 Show[components, Boxed -> False, Axes -> False]
