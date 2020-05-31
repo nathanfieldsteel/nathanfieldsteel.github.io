@@ -24,7 +24,7 @@ make improvements to computational software. I have experience with
 [Macaulay2](https://faculty.math.illinois.edu/Macaulay2/),
 [Mathematica](https://www.wolfram.com/mathematica/), and
 [GAP](https://www.gap-system.org/), as well as
-[python](https://numpy.org/) with
+[python](python.org/) with
 [SageMath](https://www.sagemath.org/), [numpy](https://numpy.org/),
 [scipy](https://www.scipy.org/) and
 [pandas](https://pandas.pydata.org/).
