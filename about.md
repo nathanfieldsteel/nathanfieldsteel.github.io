@@ -37,8 +37,8 @@ forthcoming papers.
 
 ### Teaching
 
-Courses taught at the University of Kentucky are listed below, with
-links to any course materials that I wrote.
+Courses taught at the University of Kentucky are listed below. Links
+are to archives of course materials.
 
 | Spring 2020             | MA 213: Calculus III.                                                                                                           |
 | Fall 2019               | MA 114: Calculus II.                                                                                                            |
