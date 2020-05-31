@@ -1,0 +1,29 @@
+* proving conway's circle theorem with M2 (or with a finite check?)
+
+* books I would like (recommendations from dataset)
+
+
+** break it into three posts:
+1. raw numbers ""counting"),
+2. matrix factorization, and
+3. "machine learning"
+
+
+* web scrape jstris data, visualize. maybe use R?
+
+* tetrio optimized combos
+
+* lean theorem prover?
+
+* langton's ant
+
+* R markdown post
+
+
+Next up:
+
+1. visualize book data
+2. circle theorem
+3. matrix factorization book data
+4. tetris optimization
+5. deep learning book data

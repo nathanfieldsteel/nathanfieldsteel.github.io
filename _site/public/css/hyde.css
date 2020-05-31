@@ -35,7 +35,7 @@ pre,code { font-size: 0.75rem; }
  */
 
 html {
-  font-family: 'Baskerville Old Face', Baskerville, Georgia, 'Times New Roman', serif
+  font-family: Baskerville, Georgia, 'Times New Roman', serif
 }
 
 @media (min-width: 48em) {
@@ -75,14 +75,14 @@ html {
 
 /* Sidebar links */
 .sidebar a {
-  color: #fff;
+    color: #fff;
 }
 
 /* About section */
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-family: 'Baskerville', Georgia, 'Times New Roman', serif;
+  font-family: Baskerville, Georgia, 'Times New Roman', serif;
   font-size: 2rem;
 }
 
