@@ -6,7 +6,7 @@ title: About
 I am a postdoctoral scholar in the [algebra
 group](https://math.as.uky.edu/algebra-and-number-theory) at the
 University of Kentucky, where I work with [Uwe
-Nagel](https://math.as.uky.edu/users/urnage2) on problems in
+Nagel](http://www.ms.uky.edu/~uwenagel/) on problems in
 computational mathematics and commutative algebra. I am currently on
 the job market.
 
