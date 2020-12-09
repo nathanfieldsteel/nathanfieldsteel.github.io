@@ -3,9 +3,9 @@ layout: page
 title: About
 ---
 
-I am a postdoctoral scholar in the [algebra
+I was a postdoctoral scholar in the [algebra
 group](https://math.as.uky.edu/algebra-and-number-theory) at the
-University of Kentucky, where I work with [Uwe
+University of Kentucky from 2017 until 2020, where I worked with [Uwe
 Nagel](http://www.ms.uky.edu/~uwenagel/) on problems in
 computational mathematics and commutative algebra. I am currently on
 the job market.
@@ -24,10 +24,10 @@ make improvements to computational software. I have experience with
 [Macaulay2](https://faculty.math.illinois.edu/Macaulay2/),
 [Mathematica](https://www.wolfram.com/mathematica/), and
 [GAP](https://www.gap-system.org/), as well as
-[python](python.org/) with
-[SageMath](https://www.sagemath.org/), [numpy](https://numpy.org/),
-[scipy](https://www.scipy.org/) and
-[pandas](https://pandas.pydata.org/).
+[Python](python.org/) with
+[SageMath](https://www.sagemath.org/), [NumPy](https://numpy.org/),
+[SciPy](https://www.scipy.org/) and
+[Pandas](https://pandas.pydata.org/).
 
 
 ### Publications
