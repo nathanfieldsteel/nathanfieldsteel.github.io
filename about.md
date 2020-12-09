@@ -3,12 +3,11 @@ layout: page
 title: About
 ---
 
-I was a postdoctoral scholar in the [algebra
+From 2017 until 2020, I was a postdoctoral scholar in the [algebra
 group](https://math.as.uky.edu/algebra-and-number-theory) at the
-University of Kentucky from 2017 until 2020, where I worked with [Uwe
-Nagel](http://www.ms.uky.edu/~uwenagel/) on problems in
-computational mathematics and commutative algebra. I am currently on
-the job market.
+University of Kentucky, where I worked with [Uwe
+Nagel](http://www.ms.uky.edu/~uwenagel/) on problems in computational
+mathematics and commutative algebra. I am currently on the job market.
 
 Before coming to the University of Kentucky, I went to graduate school
 at the [University of Illinois](https://math.illinois.edu/) where I
