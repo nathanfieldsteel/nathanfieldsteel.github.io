@@ -33,7 +33,7 @@ make improvements to computational software. I have experience with
 
 ### Publications
 
-[Here]({{site.url}}/publications.html) is a list of past and
+[Here]({{site.url}}/papers.html) is a list of past and
 forthcoming papers.
 
 ### Teaching
