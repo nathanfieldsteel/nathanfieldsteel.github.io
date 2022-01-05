@@ -39,14 +39,19 @@ forthcoming papers.
 ### Teaching
 
 Courses taught at the University of Kentucky are listed below, with
-links to archives of course materials.
+links to archives of course materials. Archives of course materials
+for past versions of current courses are not available.
 
-| Spring 2020             | MA 213: Calculus III.                                                                                                           |
-| Fall 2019               | MA 114: Calculus II.                                                                                                            |
-| Spring 2019 <br> &nbsp; | MA 362: [Abstract Algebra II](public/362.zip), Galois Theory. <br> MA 765: [Computational Commuatative Algebra](public/765.pdf) |
-| Fall 2018               | MA 361: [Abstract Algebra I](public/361.zip), Groups, Rings and Fields.                                                         |
-| Spring 2018             | MA 261: [Introduction to Number Theory](public/261.zip).                                                                        |
-| Fall 2017 <br> &nbsp;   | MA 109: College Algebra. <br> MA 138: Calculus II for the Life Sciences.                                                        |
+| Spring 2022 <br> &nbsp; <br> &nbsp; | MA 113: Calculus I. <br> MA 261: Introduction to Number Theory. <br> MA 361: Abstract Algebra I, Groups Rings and Fields.       |
+| Fall 2021                           | MA 109: College Algebra.<br> MA 113: Calculus I.                                                                                |
+| Spring 2020                         | MA 213: Calculus III.                                                                                                           |
+| Fall 2019                           | MA 114: Calculus II.                                                                                                            |
+| Spring 2019 <br> &nbsp;             | MA 362: [Abstract Algebra II](public/362.zip), Galois Theory.<br> MA 765: [Computational Commuatative Algebra](public/765.pdf). |
+| Fall 2018                           | MA 361: Abstract Algebra I, Groups, Rings and Fields.                                                                           |
+| Spring 2018                         | MA 261: Introduction to Number Theory.                                                                                          |
+| Fall 2017 <br> &nbsp;               | MA 109: College Algebra. <br> MA 138: Calculus II for the Life Sciences.                                                        |
+
+
 
 I was a TA for calculus I, II and III at the University of Illinois
 for eleven semesters between 2010 and 2017. I also won a [teaching
