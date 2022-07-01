@@ -104,7 +104,7 @@ threecolors = Function[x, Blend[colorlist, x]];
 {% endraw %}
 {% endhighlight %}
 
-Now all that's left to do is to color our `idxtabl` using the `ColorFunction` that we tailor made for this pupose.
+Now all that's left to do is to color our `idxtable` using the `ColorFunction` that we tailor made for this pupose.
 
 {% highlight wl %}
 {% raw %}
