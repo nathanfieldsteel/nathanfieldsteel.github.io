@@ -5,8 +5,8 @@ title: Papers
 
 0. Local cohomology, determinantal ideals and Rees algebras. <br>
 With Jennifer Kenkel. In progress.
-0. Buchsbaum-Eisenbud complexes of OI-modules. <br>
-With Uwe Nagel. In preparation.
+0. [Buchsbaum-Eisenbud complexes of OI-modules](https://arxiv.org/abs/2206.12960). <br>
+With Uwe Nagel. (arXiv preprint)
 0. [Minimal and cellular free resolutions over polynomial OI-algebras](https://arxiv.org/abs/2105.08603). <br>
 With Uwe Nagel. (arXiv preprint)
 0. [Gröbner bases and the Cohen-Macaulay property of Li's double determinantal varieties](https://arxiv.org/abs/1906.06817)<br>
