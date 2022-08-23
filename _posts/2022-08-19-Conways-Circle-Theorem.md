@@ -146,7 +146,7 @@ Finally, to check (3) we check that the coefficient of the \\(xy\\) term is zero
 FullSimplify[Coefficient[f, x y], assumption]
 ```
 
-And indeed it is. So with just 15 lines of Mathematica, we have shown that the six points \\(Q_0, Q_1, Q_2, Q_3, Q_4, Q_5\\) from Conway's circle theorem lie on a conic which can be written implicitly in the form
+And indeed it is. So with just 15 lines of Mathematica, we have shown that the six points \\(Q_0, Q_1, Q_2, Q_3, Q_4, Q_5\\) from Conway's circle theorem lie on a conic which can be normalized and written implicitly in the form
 
 \\[x^2 + y^2 + A x + B y + C = 0.\\]
 
