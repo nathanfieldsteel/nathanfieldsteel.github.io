@@ -108,7 +108,7 @@ By construction, the graph \\(f(x,y)=0\\) is a conic passing through \\(Q_1\\) t
 f[points[[1]]] // FullSimplify
 ```
 
-We get `0`, so the graph of \\(f(x,y) = 0\\) is a conic passing through all six points. But how do we know that \\(f(x,y)=0\\) describes a circle, and not an ellipse, hyperbola, parabola or a degenerate conic? Well, we can verify this with three straightforward algebraic checks. We just need to know that:
+We get `0`, so the graph of \\(f(x,y) = 0\\) is a conic passing through all six points. But how do we know that \\(f(x,y)=0\\) describes a circle, and not an ellipse, hyperbola, parabola or a degenerate conic? Well, we can verify this with three straightforward algebraic checks. We just need to show that:
 
 1. \\(f(x,y)\\) has the same coefficient on \\(x^2\\) and \\(y^2\\).
 2. The coefficient on \\(x^2\\) is non-zero.
@@ -146,7 +146,7 @@ Finally, to check (3) we verify that the coefficient of the \\(xy\\) term is zer
 FullSimplify[Coefficient[f, x y], assumption]
 ```
 
-And it is. So with just 15 lines of Mathematica, we have shown that the six points \\(Q_0, Q_1, Q_2, Q_3, Q_4, Q_5\\) from Conway's circle theorem lie on a conic which can be normalized and written implicitly in the form
+And it is. So with just 15 lines of code in Mathematica, we have shown that the six points \\(Q_0, Q_1, Q_2, Q_3, Q_4, Q_5\\) from Conway's circle theorem lie on a conic which can be normalized and written implicitly in the form
 
 \\[x^2 + y^2 + A x + B y + C = 0.\\]
 
