@@ -108,7 +108,7 @@ By construction, the graph \\(f(x,y)=0\\) is a conic passing through \\(Q_1\\) t
 f[points[[1]]] // FullSimplify
 ```
 
-We get zero, so the graph of \\(f(x,y) = 0\\) is a conic passing through all six points. But how do we know that \\(f(x,y)=0\\) describes a circle, and not an ellipse, hyperbola, parabola or a degenerate conic? Well, we can verify this with three straightforward algebraic checks. We just need to know that:
+We get `0`, so the graph of \\(f(x,y) = 0\\) is a conic passing through all six points. But how do we know that \\(f(x,y)=0\\) describes a circle, and not an ellipse, hyperbola, parabola or a degenerate conic? Well, we can verify this with three straightforward algebraic checks. We just need to know that:
 
 1. \\(f(x,y)\\) has the same coefficient on \\(x^2\\) and \\(y^2\\).
 2. The coefficient on \\(x^2\\) is non-zero.
@@ -120,7 +120,7 @@ For notational convenience, let's first give the implicit equation of our conic 
 F = f[{x,y}]
 ```
 
-Some of the symbolic computation that follows will only go through if we allow the engine to make use of the assumption that \\(s\\) and \\(t\\) are real numbers and that \\(t<s\\). We'll also give those assumptions a name, for readability.
+Some of the symbolic computations that follow will only go through if we allow the engine to make use of the assumption that \\(s\\) and \\(t\\) are real numbers and that \\(t<s\\). We'll also give those assumptions a name, for readability.
 
 ```wl
 assumption = Assumptions -> {t < s}
@@ -132,21 +132,21 @@ Now to check (1), we take the difference of the coefficients on \\(x^2\\) and \\
 FullSimplify[Coefficient[F, x^2] - Coefficient[F, y^2], assumption]
 ```
 
-It simplifies to `0`, so \\(f(x,y)\\) has the same coefficient on its square terms. Now we need to check (2), whether or not this coefficient could be zero.
+It simplifies to `0`, so \\(f(x,y)\\) has the same coefficient on its square terms. Now we need to check (2), whether or not the coefficient on \\(x^2\\) is or could possibly be zero.
 
 ```wl
 Solve[Coefficient[F, x^2] == 0, assumption]
 ```
 
-We get `{}`, meaning there are no values of \\(s\\) and \\(t\\) that will make this coefficient zero.
+We get `{}`, meaning that this coefficient is never zero regardless of the values of \\(s\\) and \\(t\\)
 
-Finally, to check (3) we check that the coefficient of the \\(xy\\) term is zero.
+Finally, to check (3) we verify that the coefficient of the \\(xy\\) term is zero.
 
 ```wl
 FullSimplify[Coefficient[f, x y], assumption]
 ```
 
-And indeed it is. So with just 15 lines of Mathematica, we have shown that the six points \\(Q_0, Q_1, Q_2, Q_3, Q_4, Q_5\\) from Conway's circle theorem lie on a conic which can be normalized and written implicitly in the form
+And it is. So with just 15 lines of Mathematica, we have shown that the six points \\(Q_0, Q_1, Q_2, Q_3, Q_4, Q_5\\) from Conway's circle theorem lie on a conic which can be normalized and written implicitly in the form
 
 \\[x^2 + y^2 + A x + B y + C = 0.\\]
 
