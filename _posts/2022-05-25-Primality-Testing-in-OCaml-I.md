@@ -3,39 +3,23 @@ layout: post
 title: Primality Testing in OCaml - Part I
 ---
 
-This is the first in a series of posts about implementing primality tests in the [OCaml programming language](https://ocaml.org). I first stumbled upon OCaml by accident when I was reading about the [Coq proof assistant](https://coq.inria.fr), and it quickly became one of my favorite general-purpose programming languages.
+This is the first in a series of posts about implementing primality tests in the [OCaml programming language](https://ocaml.org). I first stumbled upon OCaml by accident when I was reading about the [Coq proof assistant](https://coq.inria.fr), and it has since become one of my favorite general-purpose programming languages.
 
 <!--more-->
 
-One of the exercises in OCaml's [list of 99 problems](https://ocaml.org/problems) is to test the primality of a given integer. This problem got me thinking about different primality tests and how easy or difficult it would be to implement them in a functional style in vanilla OCaml. In this post I will talk about implementing a naïve primality test: an [Euler seive](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes#Euler's_sieve). In future posts I plan to work through some more sophisticated tests and compare their performance.
+One of the exercises in OCaml's [list of 99 problems](https://ocaml.org/problems) is to test the primality of a given integer. This problem got me thinking about different primality tests and how easy or difficult it would be to implement them in a functional style in vanilla OCaml. In this post I will talk about implementing one of the most naïve [primality tests](https://en.wikipedia.org/wiki/Primality_test) out there: [trial division](https://en.wikipedia.org/wiki/Trial_division). In future posts I will to work through some more sophisticated tests and compare their performance.
 
-### The idea:
+### The idea
 
-The idea behind the Euler seive is very simple: let \\(n\\) be a positive integer. If \\(n\\) is composite, then it must have a factor less than or equal to \\(\sqrt{n}\\), which means it must have a prime factor less than or equal to \\(\sqrt{n}\\). So, consider the set of integers
+The idea behind trial division is very simple: let \\(n\\) be a positive integer. If \\(n\\) is composite, then it must have a proper divisor less than or equal to \\(\sqrt{n}\\). So consider the set of integers
 
 \\[\\{2,3,4,\ldots, \lfloor{\sqrt{n}}\rfloor\\}.\\]
 
-\\(n\\) is composite if and only it has a divisor in this set. So beginning with the smallest element of the set, test whether or not it divides \\(n\\). If it does, then \\(n\\) is composite. If it does not, remove that element _and all of its multiples_ from the set, and repeat. At each step you either find a divisor of \\(n\\) or you strictly reduce the number of elements remaining in the set. If you manage to reach the empty set, then \\(n\\) is prime.
+\\(n\\) is composite if and only it has a divisor in this set.
 
-### A worked example:
+### First implementation
 
-Say we wanted to test the primality of \\(409\\). Its square root rounds down to \\(20\\), so we need to test whether \\(409\\) has a divisor in the set
-
-\\[\\{2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20\\}.\\]
-
-Since \\(2\\) does not divide \\(409\\), we remove the multiples of \\(2\\) from the set and try again, with the set of candidate divisors reduced to:
-
-\\[\\{3,5,7,9,11,13,15,17,19\\}\\]
-
-Since \\(3\\) does not divide \\(409\\), we now remove all multiples of \\(3\\) from the set, leaving
-
-\\[\\{5,7,11,13,17,19\\}.\\]
-
-Further iterations of this process will end up only removing the smallest element from the set. We end up testing whether \\(409\\) is divisible by \\(2,3,5,7,11,13,17,19\\), and in each case finding that it is not. Since \\(409\\) doesn't have a prime factor less than or equal to \\(\sqrt{20}\\), it must be prime.
-
-### An OCaml implementation:
-
-The Euler Seive as described above is very amenable to being implemented in a recursive and functional style. The only hiccup is that OCaml doesn't have a built-in utility for creating a list of all integers between given bounds. We will want this not only as a component of our algorithm, but also for testing it. So we'll create a `range` utility as a standalone function and also choose a convenient infix operator.
+Let's start by implementing this test directly, putting off any optimizations or refinements for the moment. The only thing we need before writing the primality test itself is a `range` function to generate the list of integers between specified bounds.
 
 ```ocaml
   let range a b =
@@ -48,48 +32,93 @@ The Euler Seive as described above is very amenable to being implemented in a re
   let (--) a b = range a b
 ```
 
-It is important to point out that a slightly more direct implementation might feel more natural here:
+It is important to point out that you can write a shorter, more idiomatic range function like this:
 
 ```ocaml
   let rec range a b = match b - a with
     | d when d < 0 -> []
-    | 0 -> [a]
     | _ -> a :: range (a + 1) b
 ```
 
-However, this second `range` function is not suitable for our purposes, because is not [tail recursive](https://en.wikipedia.org/wiki/Tail_call). Using this second `range` function to create a list of length around \\(10^6\\) will overflow the stack. But our original (and tail-recursive) implementation can handle ranges several orders of magnitude longer before it starts to slow down for other reasons.
+However, this second `range` function is not suitable for our purposes, because is not [tail recursive](https://en.wikipedia.org/wiki/Tail_call). Using this second `range` function to create a list of length around \\(10^6\\) will overflow the stack. But our original (and tail-recursive) implementation can handle ranges a few orders of magnitude longer before it starts to slow down for other reasons. With our `range` function in hand, we can implement our trial division primality test.
 
-With our `range` function in hand, we're basically ready to implement the Euler seive in OCaml: Here's the quick summary. Given an integer \\(n\\):
+```ocaml
+  let is_prime n =
+    if n < 2
+    then false
+    else n
+         |> float_of_int
+         |> Float.sqrt
+         |> Float.floor
+         |> int_of_float
+         |> (--) 2
+         |> List.map ((mod) n)
+         |> List.mem 0
+         |> not
+```
 
-1. If \\(n < 2\\) then it's not prime
-2. But if \\(n \geqslant 2\\), make the list from \\(2\\) to \\(\lfloor\sqrt{n}\\rfloor\\). If \\(n\\) has a proper divisor, then it must have a proper divisor in this list.
-3. If the smallest integer in that list divides \\(n\\), then \\(n\\) is not prime. If the list is empty, then \\(n\\) is prime.
-4. But if neither of those cases hold, then remove the smallest element of the list together with all of its multiples, and repeat steps 3-4.
+And just like that, we have a working primality test. It will stack overflow if `n` has around 12 digits, most likely because `List.map` is [not tail recursive](https://v2.ocaml.org/api/List.html). But it's an easy-to-implement primality test and it runs decently quickly on single inputs from within the range it can handle.
 
-My OCaml implementation ended up looking like this:
+### Small optimizations
+
+There are two clear improvements that can be made to the trial division algorithm.
+
+1. There is no need to test whether \\(n\\) is divisible by *all* integers less than or equal to \\(\sqrt{n}\\). We only need to test divisibility until we find a divisor. At that point we know \\(n\\) is composite and can stop. If \\(n\\) is composite with a small divisor, this will save some time. Though if \\(n\\) is prime or a perfect square, it saves no time.
+
+2. There is no need to test divisibility by even integers. We can just test if \\(n\\) is even at the outset. If it's not, we can do trial division with the odd integers less than or equal to \\(\sqrt{n}\\). This cuts the size of the list of potential divisors in half.
+
+In fact, (2) can be extended a bit further. Instead of first checking if \\(n\\) is even, we first check whether it's divisible by \\(2\\) or \\(3\\). If it's not, then the following fact will simplify our search for divisors.
+
+> If \\(n > 3\\) is not divisible by \\(2\\) or \\(3\\), then \\(n\\) must have a divisor which is less than or equal to \\(\sqrt{n}\\) and which is of the form \\(6k \pm 1\\) for some integer \\(k\\).
+
+This is because any number that's not of the form \\(6k \pm 1\\) is divisible by \\(2\\) or \\(3\\). Since \\(n\\) isn't divisible by \\(2\\) or \\(3\\), it can't have a divisor that's divisible by \\(2\\) or \\(3\\). This lets us throw out two thirds of the set of potential divisors.
+
+Re-implementing trial division with these two small optimizations will require just a tiny bit of setup, mostly for convenience. First, we'd like a function for the boolean-valued binary relation "divides". This is usually written with the vertical bar or "pipe" symbol \\(\|\\).
+
+> We say that \\(a\\) divides \\(b\\), written \\(a \mid b\\), if there exists an integer \\(k\\) satisfying \\(a k = b\\).
+
+Unfortunately we can't use the `|` operator in OCaml for this purpose. We'll settle for `|?`
+
+```ocaml
+    let divides a b = b mod a = 0;;
+
+    let ( |? ) = divides;;
+```
+
+Also, given a predicate `pred : 'a -> bool` and a list `lst : 'a list`, we want to know if `lst` has an element `x` for which `p x` is `true`.
+
+```ocaml
+    let rec has_element_with pred lst = match lst with
+      | [] -> false
+      | x :: xs -> (pred x) || (has_element_with pred xs);;
+```
+
+Because the or operator `||` is evaluated [lazily](https://en.wikipedia.org/wiki/Lazy_evaluation), if the first element of `lst` satisfies the predicate, the function returns `true` and does not consider the tail of the list. With our `divides` operator and our lazy replacement for `List.mem` in hand, we can now write our slightly-improved trial division primality test.
 
 ```ocaml
   let is_prime n = match n with
-    | n when n < 2 -> false
-    | n -> let candidate_divisors =
-             n
-             |> float_of_int
-             |> Float.sqrt
-             |> Float.floor
-             |> int_of_float
-             |> range 2 in
-           let rec seive div_list m = match div_list with
-             | [] -> true
-             | p :: qs -> if m mod p = 0
-                          then false
-                          else
-                            let not_p_mult q = q mod p <> 0 in
-                            let ds = List.filter not_p_mult qs in
-                            seive ds m in
-           seive candidate_divisors n;;
+    | n when (n = 2) || (n = 3) -> true
+    | n when (n < 2) || (2 |? n) || (3 |? n) -> false
+    | n -> let p = fun i -> (6*i - 1 |? n) || (6*i + 1 |? n) in
+           n
+           |> float_of_int
+           |> Float.sqrt
+           |> Float.floor
+           |> int_of_float
+           |> (+) 1
+           |> (fun m -> m / 6)
+           |> (--) 1
+           |> has_element_with p
+           |> not
 ```
 
-I'll save the more exhaustive benchmarking for a future post, where I'll measure the performance of this `is_prime` function against some newer implementations. But for now it's nice to at least spot check the correctness of the function.  For example, the list of primes less than \\(500\\) can be found with `1 -- 500 |> List.filter is_prime`, which gives
+It's easy enough to spot-check correctness with something like
+
+```ocaml
+  List.filter is_prime (1--500)
+```
+
+which gives
 
 ```ocaml
 - : int list =
@@ -102,9 +131,9 @@ I'll save the more exhaustive benchmarking for a future post, where I'll measure
  463; 467; 479; 487; 491; 499]
 ```
 
-and these are indeed the \\(95\\) primes less than \\(500\\). We could also test the primality of a large prime like `is_prime 1_000_000_009`, or a challenging semiprime like `is_prime 10_003_800_361`. This second number is a worst-case composite number for the Euler sieve, since it's the square of a large prime.
+and these are indeed the \\(95\\) primes below \\(500\\). We could also test the primality of a large prime like `is_prime 1_000_000_009`, or a large semiprime like `is_prime 10_003_800_361`. This second number is a worst-case composite number for trial division. Since it's the square of a large prime, we don't find a divisor until the very end of our search.
 
-As one more spot check of correctness we might use our `is_prime` function to implement the [prime counting function](https://en.wikipedia.org/wiki/Prime-counting_function). Usually denoted \\(\pi(x)\\), it is defined to be the number of primes less than or equal to \\(x\\).
+We might also use our `is_prime` function to implement the [prime counting function](https://en.wikipedia.org/wiki/Prime-counting_function). Usually denoted \\(\pi(x)\\), it is defined to be the number of primes less than or equal to \\(x\\).
 
 ```ocaml
   let prime_pi n = 1 -- n
@@ -112,5 +141,6 @@ As one more spot check of correctness we might use our `is_prime` function to im
                    |> List.length
 ```
 
-Asking for `prime_pi 1_000_000` (accurately) gives `78498`, so we can be reasonably assured of the correctness of our code (Although this took about a minute to run on my system. If we were actually interested in the prime counting function itself, this would not be the best way to implement it).
+Asking for `prime_pi 1_000_000` gives the correct value of `78498`, so we can be reasonably assured of the correctness of our code (Though if we were actually interested in the prime counting function itself, this would not be the best way to implement it).
 
+Finally, we'll briefly compare our first naïve implementation to the version with optimizations, by using both of them to test primality of the first \\(10^7\\) integers. The naïve implementation runs in `964.78` seconds, while the version with lazy evaluation and the \\(6k \pm 1\\) heuristic runs in `31.58` seconds, a roughly \\(30\\) times speedup (mostly because of the lazy evaluation). We'll put off the more serious benchmarking until we have more sophisticated primality tests to compare against.
