@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Primality Testing in OCaml - Part I
+title: Primality testing in OCaml - part I
 ---
 
 This is the first in a series of posts about implementing primality tests in the [OCaml programming language](https://ocaml.org). I first stumbled upon OCaml by accident when I was reading about the [Coq proof assistant](https://coq.inria.fr), and it has since become one of my favorite general-purpose programming languages.
