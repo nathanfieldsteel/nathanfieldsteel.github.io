@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The tangent variety to the twisted cubic
+synopsis: Modeling and 3D printing the tangent variety to the <a href="https://en.wikipedia.org/wiki/Twisted_cubic">twisted cubic curve</a>. <br> <br> <p><img src="http://nathanfieldsteel.github.io/public/animation.gif" alt="tangent variety animation" height="50%" width="50%" class="center-image"/></p>
 ---
 
 The [twisted cubic curve](https://en.wikipedia.org/wiki/Twisted_cubic)
