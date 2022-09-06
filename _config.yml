@@ -1,15 +1,15 @@
 # Setup
-title:            Nathan Fieldsteel
-tagline:          ''
-description:      'Mathematical software and computation'
-url:              'https://nathanfieldsteel.github.io'
-baseurl:          ''
-paginate:         5
-
+title:             Nathan Fieldsteel
+tagline:           ''
+description:       'Mathematical software and computation'
+url:               'https://nathanfieldsteel.github.io'
+baseurl:           ''
+paginate:          5
+excerpt-separator: "<!--more-->"
 
 # About and contact
 author:
-  name:           'Nathan Fieldsteel'
+  name:            'Nathan Fieldsteel'
 
 # Gems
 plugins:
@@ -18,7 +18,7 @@ plugins:
   - jekyll-katex
 
 # Custom vars
-sidebar-name:	N Fieldsteel
-version:    	3.0.0
+sidebar-name:	   N Fieldsteel
+version:    	   3.0.0
 
-site.github.repo:	  github.com/nathanfieldsteel
+site.github.repo:  github.com/nathanfieldsteel
