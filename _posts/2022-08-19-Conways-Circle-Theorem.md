@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Conway's circle theorem and symbolic algebra.
-synopsis: <a href=https://en.wikipedia.org/wiki/Conway_circle_theorem>Conway's circle theorem</a> is a result in classical geometry. We provide a computer-assisted proof using Mathematica as a term rewriting system for symbolic algebra.
+synopsis: <a href=https://en.wikipedia.org/wiki/Conway_circle_theorem>Conway's circle theorem</a> is a result in classical geometry. We use Mathematica to provide a computer-assisted proof using only symbolic algebra. <br> <br> <p><img src="http://nathanfieldsteel.github.io/public/conwayanimation.gif" alt="circle animation" height="50%" width="50%" class="center-image"/></p>
 ---
 
 This post is about proving [Conway's circle theorem](https://en.wikipedia.org/wiki/Conway_circle_theorem) computationally, using symbolic algrebra and Mathematica. But before presenting this slightly unusual proof, we'll start with a visual illustration of the theorem and a classical proof.
