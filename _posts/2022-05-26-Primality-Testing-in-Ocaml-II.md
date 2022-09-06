@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Primality testing in OCaml - part II
-synopsis: This is the second in a series of posts about implementing primality tests in <a href = https://ocaml.org>OCaml</a>. In the first post, we implemented a naïve Euler seive. In this post we'll think about something a little bit more sophisticated&#x3A; the <a href=https://en.wikipedia.org/wiki/Miller–Rabin_primality_test>Miller-Rabin primality test</a>.
+synopsis: The second in a series of posts about implementing primality tests in <a href = https://ocaml.org>OCaml</a>. In this post, we'll implement a deterministic primality test for the OCaml <code>int</code> type using the <a href=https://en.wikipedia.org/wiki/Miller–Rabin_primality_test>Miller-Rabin primality test</a>.
 ---
 
 * Contents
