@@ -1,6 +1,7 @@
 ---
 layout: post
 title: A Cayley table for SL(2,3)
+synopsis: We use Mathematica to generate a Cayley table for the group <a href="https://groupprops.subwiki.org/wiki/Special_linear_group:SL(2,3)">\(\text{SL}(2,3)\)</a> that visualizes its maximal normal series. <br> <br> <p><img src="http://nathanfieldsteel.github.io/public/SL23CayleyTable.png" alt="Cayley table for SL(2,3)" height="50%" width="50%" class="center-image"/></p>
 ---
 
 This is a post about generating a Cayley table for the group \\(\text{SL}(2,3)\\) in a way that visualizes a maximal flag of normal subgroups, similar to my [previous post]({% post_url 2018-11-09-S4-Quilt %}) about \\(S_4\\). I am going to take much of the underlying group theory for granted here, as the focus of this post is the idiomatic Mathematica code that makes generating this example so easy.
