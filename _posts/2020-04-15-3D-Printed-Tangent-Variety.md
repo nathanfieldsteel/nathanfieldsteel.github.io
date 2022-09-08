@@ -10,18 +10,18 @@ Below are some pictures of the two prototypes. Click for higher resolution.
 
  <div class="row">
   <div class="column">
-    <a href="{{site.url}}/public/tangent-variety/tangent-variety1.jpg"><img src="/public/tangent-variety/tangent-variety1.jpg" style="width:90%"></a>
-    <a href="{{site.url}}/public/tangent-variety/tangent-variety4.jpg"><img src="/public/tangent-variety/tangent-variety4.jpg" style="width:90%"></a>
-    <a href="{{site.url}}/public/tangent-variety/tangent-variety7.jpg"><img src="/public/tangent-variety/tangent-variety7.jpg" style="width:90%"></a>
+    <a href="{{site.url}}/public/tangent-variety/tangent-variety1.jpg"><img src="/public/tangent-variety/tangent-variety1low.jpg" style="width:90%"></a>
+    <a href="{{site.url}}/public/tangent-variety/tangent-variety4.jpg"><img src="/public/tangent-variety/tangent-variety4low.jpg" style="width:90%"></a>
+    <a href="{{site.url}}/public/tangent-variety/tangent-variety7.jpg"><img src="/public/tangent-variety/tangent-variety7low.jpg" style="width:90%"></a>
   </div>
   <div class="column">
-    <a href="{{site.url}}/public/tangent-variety/tangent-variety2.jpg"><img src="/public/tangent-variety/tangent-variety2.jpg" style="width:90%"></a>
-    <a href="{{site.url}}/public/tangent-variety/tangent-variety5.jpg"><img src="/public/tangent-variety/tangent-variety5.jpg" style="width:90%"></a>
-    <a href="{{site.url}}/public/tangent-variety/tangent-variety8.jpg"><img src="/public/tangent-variety/tangent-variety8.jpg" style="width:90%"></a>
+    <a href="{{site.url}}/public/tangent-variety/tangent-variety2.jpg"><img src="/public/tangent-variety/tangent-variety2low.jpg" style="width:90%"></a>
+    <a href="{{site.url}}/public/tangent-variety/tangent-variety5.jpg"><img src="/public/tangent-variety/tangent-variety5low.jpg" style="width:90%"></a>
+    <a href="{{site.url}}/public/tangent-variety/tangent-variety8.jpg"><img src="/public/tangent-variety/tangent-variety8low.jpg" style="width:90%"></a>
     </div>
   <div class="column">
-     <a href="{{site.url}}/public/tangent-variety/tangent-variety3.jpg"><img src="/public/tangent-variety/tangent-variety3.jpg" style="width:90%"></a>
-     <a href="{{site.url}}/public/tangent-variety/tangent-variety6.jpg"><img src="/public/tangent-variety/tangent-variety6.jpg" style="width:90%"></a>
-     <a href="{{site.url}}/public/tangent-variety/tangent-variety9.jpg"><img src="/public/tangent-variety/tangent-variety9.jpg" style="width:90%"></a>
+     <a href="{{site.url}}/public/tangent-variety/tangent-variety3.jpg"><img src="/public/tangent-variety/tangent-variety3low.jpg" style="width:90%"></a>
+     <a href="{{site.url}}/public/tangent-variety/tangent-variety6.jpg"><img src="/public/tangent-variety/tangent-variety6low.jpg" style="width:90%"></a>
+     <a href="{{site.url}}/public/tangent-variety/tangent-variety9.jpg"><img src="/public/tangent-variety/tangent-variety9low.jpg" style="width:90%"></a>
   </div>
 </div>
