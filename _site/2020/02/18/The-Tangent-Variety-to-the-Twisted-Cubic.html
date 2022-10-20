@@ -12,11 +12,11 @@
     
   </title>
 
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://nathanfieldsteel.github.io/public/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/public/apple-touch-icon-144-precomposed.png">
   
-  <link rel="shortcut icon" href="https://nathanfieldsteel.github.io/public/favicon.ico">
+  <link rel="shortcut icon" href="http://localhost:4000/public/favicon.ico">
 
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://nathanfieldsteel.github.io/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/atom.xml">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
 
@@ -29,10 +29,11 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="https://nathanfieldsteel.github.io/public/css/poole.css">
-  <link rel="stylesheet" href="https://nathanfieldsteel.github.io/public/css/hyde.css">
-  <link rel="stylesheet" href="https://nathanfieldsteel.github.io/public/css/trac.css">
-
+  <link rel="stylesheet" href="http://localhost:4000/public/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/hyde.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/trac.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/gallery.css">
+  
 </head>
 
 
@@ -57,7 +58,7 @@
 	
 	<img src="https://nathanfieldsteel.github.io/public/profile.jpg" alt="profile image" class="profile-img"/>
 	
-        <a href="https://nathanfieldsteel.github.io">
+        <a href="http://localhost:4000">
           N Fieldsteel
         </a>
       </h1>
@@ -66,7 +67,7 @@
 
     <nav class="sidebar-nav">
       
-      <a class="sidebar-nav-item" href="https://nathanfieldsteel.github.io">Home</a>
+      <a class="sidebar-nav-item" href="http://localhost:4000">Home</a>
 
       
 
@@ -74,7 +75,7 @@
       
         
           
-            <a class="sidebar-nav-item" href="https://nathanfieldsteel.github.io/about.html">About</a>
+            <a class="sidebar-nav-item" href="http://localhost:4000/about.html">About</a>
           
         
       
@@ -86,13 +87,21 @@
       
         
           
-            <a class="sidebar-nav-item" href="https://nathanfieldsteel.github.io/papers.html">Papers</a>
+            <a class="sidebar-nav-item" href="http://localhost:4000/papers.html">Papers</a>
           
         
       
         
           
-            <a class="sidebar-nav-item" href="https://nathanfieldsteel.github.io/posts.html">Posts</a>
+            <a class="sidebar-nav-item" href="http://localhost:4000/posts.html">Posts</a>
+          
+        
+      
+        
+          
+        
+      
+        
           
         
       
@@ -106,7 +115,7 @@
 
     <div class="content container">
       <div class="post">
-  <h1 class="post-title">The tangent variety to the twisted cubic</h1>
+  <h2 class="post-title">The tangent variety to the twisted cubic</h2>
   <span class="post-date">18 Feb 2020</span>
   <p>The <a href="https://en.wikipedia.org/wiki/Twisted_cubic">twisted cubic curve</a>
 is a famous example (and counterexample) in algebraic geometry,
@@ -180,7 +189,7 @@ it isn’t yet suitable for 3D printing.</p>
 <figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="w">	</span><span class="nb">Show</span><span class="p">[</span><span class="nv">curve</span><span class="o">,</span><span class="nv">tangents</span><span class="o">,</span><span class="nb">Boxed</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="o">,</span><span class="w"> </span><span class="nb">Axes</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="p">]</span><span class="w">
 	</span></code></pre></figure>
 
-<p><img src="https://nathanfieldsteel.github.io/public/tangentlines.png" alt="tangentlines" height="70%" width="70%" class="center-image" /></p>
+<p><img src="http://localhost:4000/public/tangentlines.png" alt="tangentlines" height="70%" width="70%" class="center-image" /></p>
 
 <p>To fix this, we’d like to add one more component to our model. We want
 to add the intersection of the tangent variety with the bounding
@@ -304,7 +313,7 @@ spheres.</p>
 
 </span><span class="nb">Show</span><span class="p">[</span><span class="nv">components</span><span class="o">,</span><span class="w"> </span><span class="nb">Boxed</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="o">,</span><span class="w"> </span><span class="nb">Axes</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="p">]</span></code></pre></figure>
 
-<p><img src="https://nathanfieldsteel.github.io/public/finaltangentlines.png" alt="finaltangentlines" height="80%" width="80%" class="center-image" /></p>
+<p><img src="http://localhost:4000/public/finaltangentlines.png" alt="finaltangentlines" height="80%" width="80%" class="center-image" /></p>
 
 <p>This can be exported to an stl file and 3D printed. (put picture
 here). It can be hard to understand what object looks like from a
@@ -323,14 +332,14 @@ different views of the model.</p>
 
 </span><span class="nv">animation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ListAnimate</span><span class="p">[</span><span class="nv">frames</span><span class="o">,</span><span class="w"> </span><span class="m">24</span><span class="p">]</span><span class="o">;</span></code></pre></figure>
 
-<p><img src="https://nathanfieldsteel.github.io/public/animation.gif" alt="animation" height="80%" width="80%" class="center-image" /></p>
+<p><img src="http://localhost:4000/public/animation.gif" alt="animation" height="80%" width="80%" class="center-image" /></p>
 
 </div>
 
-
-
 <!--
 I don't want this yet
+
+
 
 <div class="related">
   <h2>Related posts</h2>
@@ -338,27 +347,27 @@ I don't want this yet
     
       <li>
         <h3>
-          <a href="https://nathanfieldsteel.github.io/2021/08/19/A-Symbolic-Proof-of-Conway's-Circle-Theorem.html">
-            Conway's circle theorem in Mathematica
-            <small>19 Aug 2021</small>
+          <a href="http://localhost:4000/2022/08/19/Conways-Circle-Theorem.html">
+            Conway's circle theorem and symbolic algebra.
+            <small>19 Aug 2022</small>
           </a>
         </h3>
       </li>
     
       <li>
         <h3>
-          <a href="https://nathanfieldsteel.github.io/2019/10/15/27-Lines.html">
-            27 lines on a cubic suface
-            <small>15 Oct 2019</small>
+          <a href="http://localhost:4000/2022/05/31/3D-Printing-a-Permutoassociahedron.html">
+            3D Printing a Permutoassociahedron
+            <small>31 May 2022</small>
           </a>
         </h3>
       </li>
     
       <li>
         <h3>
-          <a href="https://nathanfieldsteel.github.io/2018/11/09/S4-Quilt.html">
-            Visualizing normal subgroups in S<sub>4</sub>
-            <small>09 Nov 2018</small>
+          <a href="http://localhost:4000/2022/05/26/Primality-Testing-in-Ocaml-II.html">
+            Primality testing in OCaml - part II
+            <small>26 May 2022</small>
           </a>
         </h3>
       </li>

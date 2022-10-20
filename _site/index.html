@@ -12,11 +12,11 @@
     
   </title>
 
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://nathanfieldsteel.github.io/public/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/public/apple-touch-icon-144-precomposed.png">
   
-  <link rel="shortcut icon" href="https://nathanfieldsteel.github.io/public/favicon.ico">
+  <link rel="shortcut icon" href="http://localhost:4000/public/favicon.ico">
 
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://nathanfieldsteel.github.io/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/atom.xml">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
 
@@ -29,10 +29,11 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="https://nathanfieldsteel.github.io/public/css/poole.css">
-  <link rel="stylesheet" href="https://nathanfieldsteel.github.io/public/css/hyde.css">
-  <link rel="stylesheet" href="https://nathanfieldsteel.github.io/public/css/trac.css">
-
+  <link rel="stylesheet" href="http://localhost:4000/public/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/hyde.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/trac.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/gallery.css">
+  
 </head>
 
 
@@ -57,7 +58,7 @@
 	
 	<img src="https://nathanfieldsteel.github.io/public/profile.jpg" alt="profile image" class="profile-img"/>
 	
-        <a href="https://nathanfieldsteel.github.io">
+        <a href="http://localhost:4000">
           N Fieldsteel
         </a>
       </h1>
@@ -66,7 +67,7 @@
 
     <nav class="sidebar-nav">
       
-      <a class="sidebar-nav-item active" href="https://nathanfieldsteel.github.io">Home</a>
+      <a class="sidebar-nav-item active" href="http://localhost:4000">Home</a>
 
       
 
@@ -74,7 +75,7 @@
       
         
           
-            <a class="sidebar-nav-item" href="https://nathanfieldsteel.github.io/about.html">About</a>
+            <a class="sidebar-nav-item" href="http://localhost:4000/about.html">About</a>
           
         
       
@@ -86,13 +87,21 @@
       
         
           
-            <a class="sidebar-nav-item" href="https://nathanfieldsteel.github.io/papers.html">Papers</a>
+            <a class="sidebar-nav-item" href="http://localhost:4000/papers.html">Papers</a>
           
         
       
         
           
-            <a class="sidebar-nav-item" href="https://nathanfieldsteel.github.io/posts.html">Posts</a>
+            <a class="sidebar-nav-item" href="http://localhost:4000/posts.html">Posts</a>
+          
+        
+      
+        
+          
+        
+      
+        
           
         
       
@@ -107,615 +116,92 @@
     <div class="content container">
       <div class="posts">
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="https://nathanfieldsteel.github.io/2021/08/19/A-Symbolic-Proof-of-Conway's-Circle-Theorem.html">
-        Conway's circle theorem in Mathematica
-      </a>
-    </h1>
-
-    <span class="post-date">19 Aug 2021</span>
-
-    <p>Statement of theorem, w/ picture.</p>
-
-<p>Sketch usual proof of theorem, with pictures.</p>
-
-<p>The idea for a symbolic proof</p>
-
-<p>Doing the symbolic “proof” in mathematica.</p>
-
-  </div>
+  
   
   <div class="post">
-    <h1 class="post-title">
-      <a href="https://nathanfieldsteel.github.io/2020/02/18/The-Tangent-Variety-to-the-Twisted-Cubic.html">
-        The tangent variety to the twisted cubic
+    <h2 class="post-title">
+      <a href="http://localhost:4000/2022/08/19/Conways-Circle-Theorem.html">
+        Conway's circle theorem and symbolic algebra.
       </a>
-    </h1>
+    </h2>
 
-    <span class="post-date">18 Feb 2020</span>
-
-    <p>The <a href="https://en.wikipedia.org/wiki/Twisted_cubic">twisted cubic curve</a>
-is a famous example (and counterexample) in algebraic geometry,
-usually described parametrically as image of the map
-\(\vec{r} : \mathbb{P}^1 \rightarrow \mathbb{P}^3\) given by</p>
-
-<p>\[ [s:t] \mapsto [s^3 : s^2 t : s t^2 : t^3],\]</p>
-
-<p>though typically for visualization purposes, we’ll restrict our
-attention to the affine patch where \(s \not = 0,\) where we have
-the more familiar parametrization \(\vec{r} : \mathbb{R}^1
-\rightarrow \mathbb{R}^3\) given by</p>
-
-<p>\[\vec{r}(t) = (t, t^2, t^3).\]</p>
-
-<p>Sean Grate and I were thinking about ideas for a 3D printed object
-that demonstrates something about the twisted cubic \(C.\) Right now
-we’re working on printing a model of the tangent variety to the
-twisted cubic which shows this surface as the union of of the tangent
-lines to the curve \(C\) itself.</p>
-
-<p>To start, we’ll need parametric equations for the twisted cubic and
-it’s tangent vector. The model we’ll eventually be making will be
-bounded by the cube with vertices \((\pm 1, \pm 1, \pm 1),\) and
-we’ll be making this model out of cylindrical tubes of a fixed radius
-\(\epsilon,\) so we set up a region function and a choose a
-parameter accordingly.</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">t</span><span class="o">,</span><span class="w"> </span><span class="nv">t</span><span class="o">^</span><span class="m">2</span><span class="o">,</span><span class="w"> </span><span class="nv">t</span><span class="o">^</span><span class="m">3</span><span class="p">}</span><span class="o">;</span><span class="w">
-</span><span class="nv">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">D</span><span class="p">[</span><span class="nv">r</span><span class="o">,</span><span class="w"> </span><span class="nv">t</span><span class="p">]</span><span class="o">;</span><span class="w">
-
-</span><span class="nv">boundingcube</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Function</span><span class="p">[{</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="nv">y</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">}</span><span class="o">,</span><span class="w">
-   </span><span class="nb">Abs</span><span class="p">[</span><span class="nv">x</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">
-   </span><span class="nb">Abs</span><span class="p">[</span><span class="nv">y</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">
-   </span><span class="nb">Abs</span><span class="p">[</span><span class="nv">z</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">1</span><span class="p">]</span><span class="o">;</span><span class="w">
-</span><span class="nv">ep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">40</span><span class="o">;</span></code></pre></figure>
-
-<p>For the twisted cubic itself, it’s straightforward to make a
-parametric plot.</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">curve</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ParametricPlot3D</span><span class="p">[</span><span class="nv">r</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">t</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w"> 
-   </span><span class="nb">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{{</span><span class="o">-</span><span class="m">1.1</span><span class="o">,</span><span class="w"> </span><span class="m">1.1</span><span class="p">}</span><span class="o">,</span><span class="w"> 
-                 </span><span class="p">{</span><span class="o">-</span><span class="m">1.1</span><span class="o">,</span><span class="w"> </span><span class="m">1.1</span><span class="p">}</span><span class="o">,</span><span class="w">
-                 </span><span class="p">{</span><span class="o">-</span><span class="m">1.1</span><span class="o">,</span><span class="w"> </span><span class="m">1.1</span><span class="p">}}</span><span class="o">,</span><span class="w">
-   </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
-   </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
-   </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">50</span><span class="p">]</span><span class="o">;</span></code></pre></figure>
-
-<p>Instead of plotting the tangent variety itself as a surface, we’ll
-instead plot a dense collection of tangent lines. For a fixed value of
-\(t,\) we get a tangent line to \(C\) is parametrized by</p>
-
-<p>\[ \ell(s) = \vec{r}(t) + s \cdot\frac{d\vec{r}}{dt}(t).\]</p>
-
-<p>We use this to create our collection of tangent lines.</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">tangents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
-   </span><span class="nb">ParametricPlot3D</span><span class="p">[</span><span class="nv">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="nv">v</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">s</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">5</span><span class="o">,</span><span class="w"> </span><span class="m">5</span><span class="p">}</span><span class="o">,</span><span class="w"> 
-    </span><span class="nb">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{{</span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
-                  </span><span class="p">{</span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
-                  </span><span class="p">{</span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}}</span><span class="o">,</span><span class="w">
-    </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
-    </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
-    </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">60</span><span class="p">]</span><span class="o">,</span><span class="w">
-   </span><span class="p">{</span><span class="nv">t</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">5</span><span class="o">,</span><span class="w"> </span><span class="m">5</span><span class="o">,</span><span class="w"> </span><span class="m">0.059</span><span class="p">}]</span><span class="o">;</span></code></pre></figure>
-
-<p>When we inspect what we have so far, we see that the curve together
-with this collection of tangent lines has some disconnected pieces, so
-it isn’t yet suitable for 3D printing.</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="w">	</span><span class="nb">Show</span><span class="p">[</span><span class="nv">curve</span><span class="o">,</span><span class="nv">tangents</span><span class="o">,</span><span class="nb">Boxed</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="o">,</span><span class="w"> </span><span class="nb">Axes</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="p">]</span><span class="w">
-	</span></code></pre></figure>
-
-<p><img src="https://nathanfieldsteel.github.io/public/tangentlines.png" alt="tangentlines" height="70%" width="70%" class="center-image" /></p>
-
-<p>To fix this, we’d like to add one more component to our model. We want
-to add the intersection of the tangent variety with the bounding
-box. Finding this intersection will be much easier if we know the
-implicit equation of the tangent variety, which we can get from the
-parametrization using Macaulay2. Our parametrization defines a ring
-map \(\mathbb{R}[x,y,z] \rightarrow \mathbb{R}[s,t],\) and the
-kernel of this ring map will be generated by the implicit equation of
-the tangent variety.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>i1 : R = QQ[X,Y,Z];
-
-i2 : S = QQ[s,t];
-
-i3 : f = map(S,R,matrix {{t+s, t^2 + 2*s*t, t^3 + 3*s*t^2}});
-
-o3 : RingMap S &lt;--- R
-
-i4 : ker f
-             2 2     3      3             2
-o4 = ideal(3X Y  - 4X Z - 4Y  + 6X*Y*Z - Z )
-
-o4 : Ideal of R
-</code></pre></div></div>
-
-<p>To find the intersection of this surface with the faces of our
-bounding cube, we’ll set \(x,y\) or \(z\) equal to \(\pm 1,\)
-set the resulting expression equal to zero, and solve for one of the
-remaining variables.</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">tangentvariety</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="nv">x</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="nv">y</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="nv">x</span><span class="o">^</span><span class="m">3</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="nv">y</span><span class="o">^</span><span class="m">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">z</span><span class="o">^</span><span class="m">2</span><span class="o">;</span><span class="w">
-
-</span><span class="nv">face1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Solve</span><span class="p">[(</span><span class="nv">tangentvariety</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Flatten</span><span class="o">;</span><span class="w">
-</span><span class="nv">face2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Solve</span><span class="p">[(</span><span class="nv">tangentvariety</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Flatten</span><span class="o">;</span><span class="w">
-</span><span class="nv">face3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Solve</span><span class="p">[(</span><span class="nv">tangentvariety</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Flatten</span><span class="o">;</span><span class="w">
-</span><span class="nv">face4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Solve</span><span class="p">[(</span><span class="nv">tangentvariety</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Flatten</span><span class="o">;</span><span class="w">
-</span><span class="nv">face5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Solve</span><span class="p">[(</span><span class="nv">tangentvariety</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="o">,</span><span class="w"> </span><span class="nv">y</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Flatten</span><span class="o">;</span><span class="w">
-</span><span class="nv">face6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Solve</span><span class="p">[(</span><span class="nv">tangentvariety</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="o">,</span><span class="w"> </span><span class="nv">y</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Flatten</span><span class="o">;</span></code></pre></figure>
-
-<p>What we get can be used to parametrize the different components of the
-intersection of the tangent variety with the bounding cube.</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">facecurves1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
-   </span><span class="nb">ParametricPlot3D</span><span class="p">[({</span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="nv">y</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">}</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">p</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">y</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
-    </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
-    </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
-    </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">40</span><span class="p">]</span><span class="o">,</span><span class="w">
-   </span><span class="p">{</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">face1</span><span class="p">}]</span><span class="o">;</span><span class="w">
-</span><span class="nv">facecurves2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
-   </span><span class="nb">ParametricPlot3D</span><span class="p">[({</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="nv">y</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">}</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">p</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">y</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
-    </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
-    </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
-    </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">40</span><span class="p">]</span><span class="o">,</span><span class="w">
-   </span><span class="p">{</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">face2</span><span class="p">}]</span><span class="o">;</span><span class="w">
-</span><span class="nv">facecurves3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
-   </span><span class="nb">ParametricPlot3D</span><span class="p">[({</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">}</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">p</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
-    </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
-    </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
-    </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">40</span><span class="p">]</span><span class="o">,</span><span class="w">
-   </span><span class="p">{</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">face3</span><span class="p">}]</span><span class="o">;</span><span class="w">
-</span><span class="nv">facecurves4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
-   </span><span class="nb">ParametricPlot3D</span><span class="p">[({</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="nv">z</span><span class="p">}</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">p</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
-    </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
-    </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
-    </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">40</span><span class="p">]</span><span class="o">,</span><span class="w">
-   </span><span class="p">{</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">face4</span><span class="p">}]</span><span class="o">;</span><span class="w">
-</span><span class="nv">facecurves5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
-   </span><span class="nb">ParametricPlot3D</span><span class="p">[({</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="nv">y</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">}</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">p</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
-    </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
-    </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
-    </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">40</span><span class="p">]</span><span class="o">,</span><span class="w">
-   </span><span class="p">{</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">face5</span><span class="p">}]</span><span class="o">;</span><span class="w">
-</span><span class="nv">facecurves6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
-   </span><span class="nb">ParametricPlot3D</span><span class="p">[({</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="nv">y</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="nv">p</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
-    </span><span class="nb">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Tube</span><span class="p">[</span><span class="nv">ep</span><span class="p">]</span><span class="o">,</span><span class="w">
-    </span><span class="nb">RegionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">boundingcube</span><span class="o">,</span><span class="w">
-    </span><span class="nb">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">40</span><span class="p">]</span><span class="o">,</span><span class="w">
-   </span><span class="p">{</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">face6</span><span class="p">}]</span><span class="o">;</span><span class="w">
-
-</span><span class="nv">facecurves</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">
-   </span><span class="nv">facecurves1</span><span class="o">,</span><span class="w">
-   </span><span class="nv">facecurves2</span><span class="o">,</span><span class="w">
-   </span><span class="nv">facecurves3</span><span class="o">,</span><span class="w">
-   </span><span class="nv">facecurves4</span><span class="o">,</span><span class="w">
-   </span><span class="nv">facecurves5</span><span class="o">,</span><span class="w">
-   </span><span class="nv">facecurves6</span><span class="w">
-   </span><span class="p">}</span><span class="o">;</span></code></pre></figure>
-
-<p>At the intersection points of these various facecurves, there’s a bit
-of artifacting we’d like to avoid, which we accomplish by covering
-these intersection points with a sphere of radius \(\epsilon.\) That
-way, the corners will be smooth instead of looking like two
-overlapping cylinders.</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">cornerpoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">
-   </span><span class="p">{</span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
-   </span><span class="p">{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
-   </span><span class="p">{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">0.6569</span><span class="p">}</span><span class="o">,</span><span class="w">
-   </span><span class="p">{</span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">0.6569</span><span class="p">}</span><span class="o">,</span><span class="w">
-   </span><span class="p">{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">0.5408</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
-   </span><span class="p">{</span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">0.5408</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
-   </span><span class="p">{</span><span class="o">-</span><span class="m">0.5408</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">}</span><span class="o">,</span><span class="w">
-   </span><span class="p">{</span><span class="m">0.5408</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">}</span><span class="w">
-   </span><span class="p">}</span><span class="o">;</span><span class="w">
-
-</span><span class="nv">cornerdots</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
-    </span><span class="nb">Graphics3D</span><span class="p">[</span><span class="nb">Sphere</span><span class="p">[</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">ep</span><span class="p">]]</span><span class="o">,</span><span class="w">
-    </span><span class="p">{</span><span class="nv">p</span><span class="o">,</span><span class="w"> </span><span class="nv">cornerpoints</span><span class="p">}]</span><span class="o">;</span></code></pre></figure>
-
-<p>The model we want is comprised of the twisted cubic curve, the
-collection of tangent lines, the curves of intersection between the
-tangent variety and the bounding cube, and these small corrective
-spheres.</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">components</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">
-	</span><span class="nv">curve</span><span class="o">,</span><span class="w"> 
-	</span><span class="nv">tangents</span><span class="o">,</span><span class="w"> 
-	</span><span class="nv">cornerdots</span><span class="o">,</span><span class="w"> 
-	</span><span class="nv">facecurves</span><span class="w">
-</span><span class="p">}</span><span class="o">;</span><span class="w">
-
-</span><span class="nb">Show</span><span class="p">[</span><span class="nv">components</span><span class="o">,</span><span class="w"> </span><span class="nb">Boxed</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="o">,</span><span class="w"> </span><span class="nb">Axes</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="p">]</span></code></pre></figure>
-
-<p><img src="https://nathanfieldsteel.github.io/public/finaltangentlines.png" alt="finaltangentlines" height="80%" width="80%" class="center-image" /></p>
-
-<p>This can be exported to an stl file and 3D printed. (put picture
-here). It can be hard to understand what object looks like from a
-static picture, even a picture of a physical object. So for the
-purpose of this post, here’s a .gif made of a parametrized family of
-different views of the model.</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">frames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
-   </span><span class="nb">Show</span><span class="p">[</span><span class="nv">components</span><span class="o">,</span><span class="w">
-   </span><span class="nb">Boxed</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="o">,</span><span class="w">
-   </span><span class="nb">Axes</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">False</span><span class="o">,</span><span class="w"> 
-   </span><span class="nb">ViewVector</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="m">3</span><span class="w"> </span><span class="nb">Cos</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="o">,</span><span class="w">
-                  </span><span class="m">3</span><span class="w"> </span><span class="nb">Sin</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="o">,</span><span class="w">
-                  </span><span class="m">6</span><span class="w"> </span><span class="nb">Sin</span><span class="p">[</span><span class="nv">t</span><span class="o">/</span><span class="m">2</span><span class="p">]}]</span><span class="o">,</span><span class="w">
-                  </span><span class="p">{</span><span class="nv">t</span><span class="o">,</span><span class="w"> </span><span class="m">0</span><span class="o">,</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="nb">Pi</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="nb">Pi</span><span class="o">/</span><span class="m">60</span><span class="p">}]</span><span class="o">;</span><span class="w">
-
-</span><span class="nv">animation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ListAnimate</span><span class="p">[</span><span class="nv">frames</span><span class="o">,</span><span class="w"> </span><span class="m">24</span><span class="p">]</span><span class="o">;</span></code></pre></figure>
-
-<p><img src="https://nathanfieldsteel.github.io/public/animation.gif" alt="animation" height="80%" width="80%" class="center-image" /></p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="https://nathanfieldsteel.github.io/2019/10/15/27-Lines.html">
-        27 lines on a cubic suface
-      </a>
-    </h1>
-
-    <span class="post-date">15 Oct 2019</span>
-
-    <p>This is a summary of a project Sean Grate an I worked on, using
-<a href="https://www.sagemath.org">Sage</a> and a 3D printer to make a model of
-the Clebsch diagonal cubic and its \(27\) lines.</p>
-
-<p>It is a classical fact from algebraic geometry that any smooth cubic
-surface contains exactly \(27\) lines, and furthermore that there
-exists a cubic surface for which all these lines are visible in the
-real locus with a high degree of symmetry. The precise statement of
-these facts requires some care and some more precise terminology,
-which I won’t go into here, but you can read more on wikipedia
-<a href="https://en.wikipedia.org/wiki/Cubic_surface#27_lines_on_a_cubic_surface">here</a>
-or <a href="https://en.wikipedia.org/wiki/Clebsch_surface">here</a>, or in this
-pair of excellent posts
-<a href="https://blogs.ams.org/visualinsight/2016/02/15/27-lines-on-a-cubic-surface/">here</a>
-and
-<a href="https://analyticphysics.com/Higher%20Dimensions/27%20Lines%20on%20a%20Cubic%20Surface.htm">here</a>,
-or in the book <a href="https://www.springer.com/gp/book/9783540617952">The Geometry of some Special Arithmetic
-Quotients</a>. The
-relevant facts can be summarized as follows:</p>
-
-<p>The Clebsch diagonal cubic is embedded in \(\mathbb{P}^3\) by the projective equation</p>
-
-<p>\[
-(x_0 + x_1 + x_2 + x_3)^3 = x_0^3 + x_1^3 + x_2^3 +x_3^3,
-\]</p>
-
-<p>and in a suitable affine patch, this surface can be visualized in \(
-\mathbb{R}^3 \) as the graph of the implicit equation</p>
-
-<p>\[ \begin{aligned} 0 &amp;= 81(x^3 + y^3 + z^3) - 189(x^2y + xy^2 + x^2z + xz^2 + y^2z + yz^2) \\ &amp;+ 54(xyz) + 126(xy + xz + yz) - 9(x^2 + y^2 + z^2) \\ &amp;- 9(x + y + z) + 1, \\ \end{aligned}, \]</p>
-
-<p>or in Sage:</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">var</span><span class="p">(</span><span class="s">'x,y,z'</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">clebsch</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
-	<span class="k">return</span> <span class="mi">81</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">3</span> <span class="o">+</span> <span class="n">y</span><span class="o">^</span><span class="mi">3</span> <span class="o">+</span> <span class="n">z</span><span class="o">^</span><span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="mi">189</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">z</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="n">z</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">54</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span><span class="p">)</span> <span class="o">+</span> <span class="mi">126</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="mi">9</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">9</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span></code></pre></figure>
-
-<p>and all of the \(27\) lines will be visible on this graph and can be
-described by explicit parametrizations, see
-<a href="https://analyticphysics.com/Higher%20Dimensions/27%20Lines%20on%20a%20Cubic%20Surface.htm">here</a>
-for details. If the line passing through \((a,b,c)\) with direction
-vector \((d,e,f)\) is contained in this surface, we add the list of
-parameters <code class="language-plaintext highlighter-rouge">[a,b,c,d,e,f]</code> to the <code class="language-plaintext highlighter-rouge">linedata</code> list, shown here
-(full list suppressed)</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">linedata</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],...]</span></code></pre></figure>
-
-<h3 id="creating-an-stl-file-with-sage">Creating an .stl file with Sage</h3>
-
-<p>The implicit equation of the surface, together with the lines it
-contains, is all we need to produce an .stl file for 3D printing our
-model. Of course, there already exist <a href="https://www.shapeways.com/marketplace?type=product&amp;q=clebsch">many 3D printed
-models</a>
-of the Clebsch diagonal cubic, including various models which
-accentuate the \(27\) lines in various ways.</p>
-
-<p>Some models use color, or embossed the lines on the surface itself,
-but we were particularly interested in models which displayed only a
-thin ribbon of the surface, together with the \(27\) lines printed
-as a collection of cylindrical tubes, like in <a href="https://www.shapeways.com/product/C3YTU5KTB/clebsch-only-its-27-lines-and-a-border?optionId=65608433&amp;li=marketplace">this
-example</a>. Inspired
-by this model, our aim was to produce a 3D printed object in the same
-vein, but with two main differences: We wanted our model to be bounded
-by a sphere, and instead of printing the lines as a collection of
-cylindrical tubes, we wanted to show the lines by printing a thin
-strip of the part of the surface which surrounds each line.</p>
-
-<p>This can easily be done with the Sage <code class="language-plaintext highlighter-rouge">implicit_plot3d</code> function,
-for which the <code class="language-plaintext highlighter-rouge">region</code> option lets us plot only the points for
-which a specified boolean condition is satisfied. For example, we only
-want to see the points on the Clebsch diagonal cubic which are inside
-a sphere of radius \(R\), and which are either within \(\epsilon\)
-of one of the \(27\) lines or are outside a sphere of radius
-\(r\), for some reasonable choices of parameter values.</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">R</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">ep</span> <span class="o">=</span> <span class="mf">0.05</span>
-
-<span class="c1"># region function
-</span><span class="k">def</span> <span class="nf">rf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
-
-    <span class="c1"># dl(i,x,y,z):
-</span>    <span class="c1"># the distance from (x,y,z) to the
-</span>    <span class="c1"># line described by linedata[i]
-</span>    
-    <span class="k">def</span> <span class="nf">dl</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
-        <span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">linedata</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    	<span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">+</span><span class="n">e</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">+</span><span class="n">f</span><span class="o">*</span><span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="n">c</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">d</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">e</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">f</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
-    	<span class="k">return</span> <span class="n">n</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">x</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="n">s</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span>
-                      <span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">s</span><span class="o">*</span><span class="n">e</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span>
-                      <span class="p">((</span><span class="n">z</span><span class="o">-</span><span class="n">c</span><span class="p">)</span> <span class="o">-</span> <span class="n">s</span><span class="o">*</span><span class="n">f</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span>
-		      		      
-    <span class="n">mindl</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="n">dl</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="mi">26</span><span class="p">]])</span>
-    <span class="n">dist</span> <span class="o">=</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="o">^</span><span class="mi">2</span>
+    <span class="post-date">19 Aug 2022</span>
     
-    <span class="k">return</span> <span class="p">(</span><span class="n">dist</span> <span class="o">&lt;=</span> <span class="n">R</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;=</span> <span class="n">dist</span> <span class="ow">or</span> <span class="n">mindl</span> <span class="o">&lt;=</span> <span class="n">ep</span><span class="p">)</span></code></pre></figure>
+    <a href=https://en.wikipedia.org/wiki/Conway_circle_theorem>Conway's circle theorem</a> is a result in classical geometry. We use Mathematica to provide a computer-assisted proof using only symbolic algebra. <br> <br> <p><img src="http://nathanfieldsteel.github.io/public/conwayanimation.gif" alt="circle animation" height="50%" width="50%" class="center-image"/></p>
+    
 
-<p>And to incorporate this region function while making our sage plot:</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># the value of the plot_points option
-# controls the level of detail. p = 100
-# is fine for prototyping, but p = 500 is
-# better for the final product. Even
-# larger p values may create .stl files
-# that are too big for our 3D printer.
-</span><span class="n">p</span> <span class="o">=</span> <span class="mi">100</span>
-
-<span class="n">surface</span> <span class="o">=</span> <span class="n">implicit_plot3d</span><span class="p">(</span><span class="n">clebsch</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span>
-                          <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="n">R</span><span class="p">,</span><span class="n">R</span><span class="p">),</span>
-                          <span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="o">-</span><span class="n">R</span><span class="p">,</span><span class="n">R</span><span class="p">),</span>
-                          <span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="o">-</span><span class="n">R</span><span class="p">,</span><span class="n">R</span><span class="p">),</span>
-                          <span class="n">region</span><span class="o">=</span><span class="n">rf</span><span class="p">,</span>
-                          <span class="n">plot_points</span><span class="o">=</span><span class="n">p</span><span class="p">,</span>
-                          <span class="n">smooth</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre></figure>
-
-<h3 id="from-a-sage-object-to-a-physical-object">From a Sage object to a physical object</h3>
-
-<p>To make an .stl file, all that’s left to do is <code class="language-plaintext highlighter-rouge">surface.save('path/to/file.stl')</code>. Since this object has no thickness, it is not yet suitable for 3D printing. We first used <a href="https://www.blender.org/">Blender</a> to <code class="language-plaintext highlighter-rouge">solidify</code> the mesh, resulting in something like this:</p>
-
-<p><img src="https://nathanfieldsteel.github.io/public/clebschblender.png" alt="clebsch" height="70%" width="70%" class="center-image" /></p>
-
-<p>We sent the .stl file for the thickened surface to the <a href="https://formlabs.com/3d-printers/form-2/">Form
-2</a> printer at the University
-of Kentucky <a href="https://ukmathlab.blogspot.com/">Math Lab</a>, and after a
-23 hour print and some careful support clipping, this was our final
-product:</p>
-
-<p><img src="https://nathanfieldsteel.github.io/public/clebsch.jpg" alt="print" height="70%" width="70%" class="center-image" /></p>
-
-<p>We’re quite happy with the results, since it accentuates the pieces of
-the surface that contain straight lines, while still showing the local
-twisting of the surface around those lines. This model now has a home
-in the display case in the math department at UK.</p>
-
+    
   </div>
   
+  
   <div class="post">
-    <h1 class="post-title">
-      <a href="https://nathanfieldsteel.github.io/2018/11/09/S4-Quilt.html">
-        Visualizing normal subgroups in S<sub>4</sub>
+    <h2 class="post-title">
+      <a href="http://localhost:4000/2022/05/31/3D-Printing-a-Permutoassociahedron.html">
+        3D Printing a Permutoassociahedron
       </a>
-    </h1>
+    </h2>
 
-    <span class="post-date">09 Nov 2018</span>
+    <span class="post-date">31 May 2022</span>
+    
+    Putting together a 3D-printable model of a <a href=https://en.wikipedia.org/wiki/Permutoassociahedron>permutoassociahedron</a>. <br> <br> <p><img src="http://nathanfieldsteel.github.io/public/permutoassociahedron/KPA4skeleton.gif" alt="animated 1-skeleton of a permutoassociahedron" height="50%" width="50%" class="center-image"/></p>
+    
 
-    <p>The <a href="https://ukmathlab.blogspot.com/">Math Lab</a> at the University of
-Kentucky has a group which visualizes mathematical ideas through
-quilting, with
-<a href="https://ukmathlab.blogspot.com/search/label/2d%20Visualization">projects</a>
-involving partitions, hyperbolic tilings, and prime sieves. One idea
-for a quilting project, originally suggested by <a href="http://www.ms.uky.edu/~dhje223/">Dave
-Jensen</a>, was to create a quilt
-representing the Cayley table for the symmetric group \(S_4\) to
-exhibit its flag of normal subgroups. This post describes
-implementation of that idea using Mathematica.</p>
+    
+  </div>
+  
+  
+  <div class="post">
+    <h2 class="post-title">
+      <a href="http://localhost:4000/2022/05/26/Primality-Testing-in-Ocaml-II.html">
+        Primality testing in OCaml - part II
+      </a>
+    </h2>
 
-<p>The <a href="https://en.wikipedia.org/wiki/Symmetric_group">symmetric group</a>
-\(S_4\) is the group of bijective functions from the set \(\lbrace
-1,2,3,4 \rbrace\) to itself. It has an index \(2\) normal subgroup
-\(A_4\), consisting of only the even permutations, and contained
-inside \(A_4\) is the Klein \(4\)-group \(V\), generated by all
-products of disjoint \(2\)-cycles. \(V\) is also normal is
-\(S_4\). Taken together this describes a flag of normal subgroups in
-\(S_4\)</p>
+    <span class="post-date">26 May 2022</span>
+    
+    The second in a series of posts about implementing primality tests in <a href = https://ocaml.org>OCaml</a>. In this post, we'll implement a deterministic primality test for the OCaml <code>int</code> type using the <a href=https://en.wikipedia.org/wiki/Miller–Rabin_primality_test>Miller-Rabin primality test</a>.
+    
 
-<p>\[ (1) \trianglelefteq V \trianglelefteq A_4 \trianglelefteq S_4\]</p>
+    
+  </div>
+  
+  
+  <div class="post">
+    <h2 class="post-title">
+      <a href="http://localhost:4000/2022/05/25/Primality-Testing-in-OCaml-I.html">
+        Primality testing in OCaml - part I
+      </a>
+    </h2>
 
-<p>To work with these permutation groups in Mathematica, all we need to
-know is that \(S_n\) is generated by any \(2\)-cycle and any
-\(n\)-cycle, \(A_4\) is generated by \((123)\) and \((124)\),
-and \(V\) is generated by any two of its non-identity elements.</p>
+    <span class="post-date">25 May 2022</span>
+    
+    We implement a rudimentary primality test in the <a href = https://ocaml.org>OCaml</a> programming language.
+    
 
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Cycles</span><span class="p">[{{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="p">}}]</span><span class="o">;</span><span class="w">
-</span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Cycles</span><span class="p">[{{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="o">,</span><span class="w"> </span><span class="m">3</span><span class="o">,</span><span class="w"> </span><span class="m">4</span><span class="p">}}]</span><span class="o">;</span><span class="w">
-</span><span class="nv">G</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">PermutationGroup</span><span class="p">[{</span><span class="nv">a</span><span class="o">,</span><span class="w"> </span><span class="nv">b</span><span class="p">}]</span><span class="o">;</span><span class="w">
+    
+  </div>
+  
+  
+  <div class="post">
+    <h2 class="post-title">
+      <a href="http://localhost:4000/2022/04/27/A-New-Cayley-Table.html">
+        A Cayley table for SL(2,3)
+      </a>
+    </h2>
 
-</span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Cycles</span><span class="p">[{{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="o">,</span><span class="w"> </span><span class="m">3</span><span class="p">}}]</span><span class="o">;</span><span class="w">
-</span><span class="nv">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Cycles</span><span class="p">[{{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="o">,</span><span class="w"> </span><span class="m">4</span><span class="p">}}]</span><span class="o">;</span><span class="w">
-</span><span class="nv">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">PermutationGroup</span><span class="p">[{</span><span class="nv">c</span><span class="o">,</span><span class="w"> </span><span class="nv">d</span><span class="p">}]</span><span class="o">;</span><span class="w">
+    <span class="post-date">27 Apr 2022</span>
+    
+    We use Mathematica to generate a Cayley table for the group <a href="https://groupprops.subwiki.org/wiki/Special_linear_group:SL(2,3)">\(\text{SL}(2,3)\)</a> that visualizes its maximal normal series. <br> <br> <p><img src="http://nathanfieldsteel.github.io/public/SL23CayleyTable.png" alt="Cayley table for SL(2,3)" height="50%" width="50%" class="center-image"/></p>
+    
 
-</span><span class="nv">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Cycles</span><span class="p">[{{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="p">}</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="m">3</span><span class="o">,</span><span class="w"> </span><span class="m">4</span><span class="p">}}]</span><span class="o">;</span><span class="w">
-</span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Cycles</span><span class="p">[{{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">3</span><span class="p">}</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="m">2</span><span class="o">,</span><span class="w"> </span><span class="m">4</span><span class="p">}}]</span><span class="o">;</span><span class="w">
-</span><span class="nv">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">PermutationGroup</span><span class="p">[{</span><span class="nv">e</span><span class="o">,</span><span class="w"> </span><span class="nv">f</span><span class="p">}]</span><span class="o">;</span></code></pre></figure>
-
-<p>The Cayley table of a group is just a multiplication table for the
-group operation. If we form a naive Cayley table for \(S_4\) using the default ordering of the elements given by Mathematica, and encoding the elements using a built-in color function, then we don’t expect to see much of the structure, but it’ll show us our starting point.</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nb">ArrayPlot</span><span class="p">[</span><span class="nb">GroupMultiplicationTable</span><span class="p">[</span><span class="nv">G</span><span class="p">]</span><span class="o">,</span><span class="w"> 
- </span><span class="nb">ColorFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"ThermometerColors"</span><span class="p">]</span></code></pre></figure>
-
-<p><img src="https://nathanfieldsteel.github.io/public/naivecayley.png" alt="naivecayley" height="80%" width="80%" class="center-image" /></p>
-
-<p>This Cayley table seems to have some structure, especially in the way
-that the top six rows look like they’re organized by color into
-squares. Explaining this takes a bit of additional effort to figure
-out exactly which elements of \(S_4\) have been assigned which
-colors. We generate a list of elements of \(S_4\), written in cycle
-notation and backed by their Mathematica-assigned color. Note that
-since the first element of \(S_4\) is the identity permutation, this
-is also a description of the topmost row and leftmost column in the
-Cayley table.</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">GroupMultiplicationTable</span><span class="p">[</span><span class="nv">G</span><span class="p">][[</span><span class="m">1</span><span class="p">]]</span><span class="o">;</span><span class="w">
-
-</span><span class="nb">ArrayPlot</span><span class="p">[{</span><span class="nv">elements</span><span class="p">}</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Transpose</span><span class="o">,</span><span class="w"> 
- </span><span class="nb">ColorFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"ThermometerColors"</span><span class="o">,</span><span class="w"> </span><span class="nb">AspectRatio</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">7</span><span class="o">,</span><span class="w"> 
- </span><span class="nb">Epilog</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> 
-   </span><span class="nb">MapIndexed</span><span class="p">[</span><span class="w">
-    </span><span class="nb">Text</span><span class="p">[</span><span class="nb">Style</span><span class="p">[</span><span class="nb">ToString</span><span class="p">[</span><span class="nb">Flatten</span><span class="p">[</span><span class="nb">Level</span><span class="p">[</span><span class="nb">GroupElements</span><span class="p">[</span><span class="nv">G</span><span class="p">][[</span><span class="nf">#1</span><span class="p">]]</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">]</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">]]</span><span class="o">,</span><span class="m">40</span><span class="p">]</span><span class="o">,</span><span class="w">
-    </span><span class="nb">Reverse</span><span class="p">[</span><span class="nf">#2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">2</span><span class="p">]]</span><span class="w"> </span><span class="o">&amp;,</span><span class="w"> 
-    </span><span class="nb">Reverse</span><span class="p">[{</span><span class="nv">elements</span><span class="p">}</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Transpose</span><span class="p">]</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="m">2</span><span class="p">}]}]</span></code></pre></figure>
-
-<p><img src="https://nathanfieldsteel.github.io/public/arbitrarycolors.png" alt="arbitrarycolors" height="20%" width="20%" class="center-image" /></p>
-
-<p>Note that for the built-in ordering of \(S_4\), the first six
-elements are the subgroup \(S_3 \leqslant S_4\) of permutations that
-fix \(1\). Since subgroups are closed under multiplication, this
-explains why the top-left \(6 \times 6\) square of the Cayley table
-only uses the first six colors from the above list. After staring a
-little longer, we can also note that the \(7^\text{th}\) through
-\(12^\text{th}\) elements are exactly the left coset \((12)S_3\),
-the \(13^\text{th}\) through \(18^\text{th}\) elements are
-exactly \((132)S_3\), and the last six elements form the last coset
-\((1432) S_3\). This explains why the first six rows of the Cayley
-table form what appear to be four distinct squares: The left cosets of
-\(S_3\) are fixed, but permuted internally, by right multiplication
-by an element of \(S_3\). Additionally, we observe that each column
-in the Cayley table seems to consist of four distinct strips: dark
-blue, light blue, dark red and light red, in some order and internally
-permuted. This is because left multiplication by an element of
-\(S_4\) permutes the left cosets of \(S_3\).</p>
-
-<p>However, right multiplication does not preserve the left cosets of a
-subgroup, unless that subgroup happens to be a normal subgroup. This
-leads us to our process for making a Cayley table that represents the
-flag of normal subgroups. We want to re-order the elements of
-\(S_4\) so that the first four elements form the subgroup \(V\),
-and so the rest of the list is sorted into the five left cosets of
-\(V\). Furthermore, we want the first three cosets to comprise the
-elements of \(A_4\). This accomplishes a partition of the elements
-of \(S_4\) into the two cosets of \(A_4\), which are further
-subdivided into three cosets of \(V\) each.</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">Vreps</span><span class="w"> </span><span class="o">=</span><span class="w">
-  </span><span class="nb">Table</span><span class="p">[</span><span class="nb">RightCosetRepresentative</span><span class="p">[</span><span class="nv">V</span><span class="o">,</span><span class="w"> </span><span class="nv">g</span><span class="p">]</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">g</span><span class="o">,</span><span class="w"> </span><span class="nb">GroupElements</span><span class="p">[</span><span class="nv">G</span><span class="p">]}]</span><span class="w"> </span><span class="o">//</span><span class="w"> 
-   </span><span class="nb">DeleteDuplicates</span><span class="o">;</span><span class="w">
-
-</span><span class="c">(* rearrange them so the first three are in A_4 *)</span><span class="w">
-
-</span><span class="nv">VrepsSorted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nb">Select</span><span class="p">[</span><span class="nv">Vreps</span><span class="o">,</span><span class="w"> </span><span class="nb">GroupElementQ</span><span class="p">[</span><span class="nv">A</span><span class="o">,</span><span class="w"> </span><span class="nf">#</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Sort</span><span class="p">)</span><span class="o">~</span><span class="w">
-   </span><span class="nb">Join</span><span class="o">~</span><span class="p">(</span><span class="nb">Select</span><span class="p">[</span><span class="nv">Vreps</span><span class="o">,</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="nb">GroupElementQ</span><span class="p">[</span><span class="nv">A</span><span class="o">,</span><span class="w"> </span><span class="nf">#</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Sort</span><span class="p">)</span><span class="o">;</span><span class="w">
-
-</span><span class="c">(* a list of indices giving the desired order*)</span><span class="w">
-
-</span><span class="nv">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
-     </span><span class="nb">PermutationProduct</span><span class="p">[</span><span class="nv">v</span><span class="o">,</span><span class="w"> </span><span class="nv">r</span><span class="p">]</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">r</span><span class="o">,</span><span class="w"> </span><span class="nv">VrepsSorted</span><span class="p">}</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">v</span><span class="o">,</span><span class="w"> 
-      </span><span class="nb">GroupElements</span><span class="p">[</span><span class="nv">V</span><span class="p">]}]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Flatten</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">GroupElementPosition</span><span class="p">[</span><span class="nv">G</span><span class="o">,</span><span class="w"> </span><span class="nf">#</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;;</span><span class="w">
-
-</span><span class="c">(* The Cayley table, re-arranged accordingly *)</span><span class="w">
-</span><span class="nv">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Table</span><span class="p">[</span><span class="w">
-   </span><span class="nb">GroupElementPosition</span><span class="p">[</span><span class="nv">G</span><span class="o">,</span><span class="w"> 
-    </span><span class="nb">PermutationProduct</span><span class="p">[</span><span class="nb">GroupElements</span><span class="p">[</span><span class="nv">G</span><span class="p">][[</span><span class="nv">idx</span><span class="p">[[</span><span class="nv">i</span><span class="p">]]]]</span><span class="o">,</span><span class="w"> 
-     </span><span class="nb">GroupElements</span><span class="p">[</span><span class="nv">G</span><span class="p">][[</span><span class="nv">idx</span><span class="p">[[</span><span class="nv">j</span><span class="p">]]]]]]</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">i</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">24</span><span class="p">}</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">j</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">24</span><span class="p">}]</span><span class="o">;</span></code></pre></figure>
-
-<p>The index list <code class="language-plaintext highlighter-rouge">idx</code> is itself a permutation, which tells us how
-to re-order the elements of \(S_4\) for our purposes. Inspecting
-<code class="language-plaintext highlighter-rouge">idx</code> we see:</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="p">{</span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">8</span><span class="o">,</span><span class="w"> </span><span class="m">17</span><span class="o">,</span><span class="w"> </span><span class="m">24</span><span class="o">,</span><span class="w"> </span><span class="m">4</span><span class="o">,</span><span class="w"> </span><span class="m">13</span><span class="o">,</span><span class="w"> </span><span class="m">21</span><span class="o">,</span><span class="w"> </span><span class="m">12</span><span class="o">,</span><span class="w"> </span><span class="m">5</span><span class="o">,</span><span class="w"> </span><span class="m">20</span><span class="o">,</span><span class="w"> </span><span class="m">9</span><span class="o">,</span><span class="w"> </span><span class="m">16</span><span class="o">,</span><span class="w"> </span><span class="m">3</span><span class="o">,</span><span class="w">
-</span><span class="m">14</span><span class="o">,</span><span class="w"> </span><span class="m">11</span><span class="o">,</span><span class="w"> </span><span class="m">22</span><span class="o">,</span><span class="w"> </span><span class="m">6</span><span class="o">,</span><span class="w"> </span><span class="m">19</span><span class="o">,</span><span class="w"> </span><span class="m">15</span><span class="o">,</span><span class="w"> </span><span class="m">10</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="o">,</span><span class="w"> </span><span class="m">7</span><span class="o">,</span><span class="w"> </span><span class="m">23</span><span class="o">,</span><span class="w"> </span><span class="m">18</span><span class="p">}</span></code></pre></figure>
-
-<p>All that’s left to do is to come up with a color function meeting our
-specifications. We need to come up with six visually distinct colors
-\(c_1, \ldots, c_6\), and assign to the numbers \(1,8,17,24\) four
-different shades of \(c_1\), assign to the numbers \(4,13,21,12\)
-four different shades of \(c_2\), and so forth. This will
-distinguish the six cosets of \(V\).  Additionally, we want to
-choose colors so that \(c_1, c_2,\) and \(c_3\) look similar to
-each other, as do the colors \(c_4, c_5\) and \(c_6\), but with
-some distinction between the two triplets to distinguish the cosets of
-\(A_4\).</p>
-
-<p>These are just aesthetic choices, but we might choose some reds,
-oranges and yellows for the cosets of \(V\) in \(A_4\), and some
-blues and greens for the cosets of \(V\) that aren’t in \(A_4.\)</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">fourfades</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nb">NestList</span><span class="p">[</span><span class="nb">Lighter</span><span class="p">[</span><span class="nf">#</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">6</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;,</span><span class="w"> </span><span class="nf">#</span><span class="o">,</span><span class="w"> </span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;;</span><span class="w">
-
-</span><span class="nv">colorchoices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">
-   </span><span class="nb">RGBColor</span><span class="p">[</span><span class="s">"#EF476F"</span><span class="p">]</span><span class="o">,</span><span class="w">
-   </span><span class="nb">RGBColor</span><span class="p">[</span><span class="s">"#F78C6B"</span><span class="p">]</span><span class="o">,</span><span class="w">
-   </span><span class="nb">RGBColor</span><span class="p">[</span><span class="s">"#FFD166"</span><span class="p">]</span><span class="o">,</span><span class="w">
-   </span><span class="nb">RGBColor</span><span class="p">[</span><span class="s">"#06D6A0"</span><span class="p">]</span><span class="o">,</span><span class="w">
-   </span><span class="nb">RGBColor</span><span class="p">[</span><span class="s">"#118AB2"</span><span class="p">]</span><span class="o">,</span><span class="w">
-   </span><span class="nb">RGBColor</span><span class="p">[</span><span class="s">"#073B4C"</span><span class="p">]}</span><span class="o">;</span><span class="w">
-   
-</span><span class="nv">colorlist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Map</span><span class="p">[</span><span class="nv">fourfades</span><span class="o">,</span><span class="w"> </span><span class="nv">colorchoices</span><span class="p">]</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Flatten</span><span class="o">;</span><span class="w">
-
-</span><span class="nv">sixcolors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Function</span><span class="p">[</span><span class="nv">x</span><span class="o">,</span><span class="w"> </span><span class="nb">Blend</span><span class="p">[</span><span class="nv">colorlist</span><span class="o">,</span><span class="w"> </span><span class="nv">x</span><span class="p">]]</span><span class="o">;</span></code></pre></figure>
-
-<p>Looking at our re-ordered list of elements of \(S_4\) with this new
-color palette, we see that it more or less accomplishes what we set
-out to accomplish.</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nb">ArrayPlot</span><span class="p">[({</span><span class="nb">Range</span><span class="p">[</span><span class="m">24</span><span class="p">]}</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Transpose</span><span class="p">)</span><span class="o">/</span><span class="m">24</span><span class="o">,</span><span class="w"> 
- </span><span class="nb">ColorFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">sixcolors</span><span class="o">,</span><span class="w">
- </span><span class="nb">AspectRatio</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">7</span><span class="o">,</span><span class="w"> 
- </span><span class="nb">Epilog</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="nb">MapIndexed</span><span class="p">[</span><span class="w">
-    </span><span class="nb">Text</span><span class="p">[</span><span class="w">
-     </span><span class="nb">Style</span><span class="p">[</span><span class="nb">ToString</span><span class="p">[</span><span class="nb">Flatten</span><span class="p">[</span><span class="nb">Level</span><span class="p">[</span><span class="nb">GroupElements</span><span class="p">[</span><span class="nv">G</span><span class="p">][[</span><span class="nv">idx</span><span class="p">]][[</span><span class="nf">#1</span><span class="p">]]</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">]</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="p">]]</span><span class="o">,</span><span class="w"> </span><span class="m">40</span><span class="p">]</span><span class="o">,</span><span class="w">
-     </span><span class="nb">Reverse</span><span class="p">[</span><span class="nf">#2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">2</span><span class="p">]]</span><span class="w"> </span><span class="o">&amp;,</span><span class="w"> 
-     </span><span class="nb">Reverse</span><span class="p">[{</span><span class="nb">Table</span><span class="p">[</span><span class="nv">n</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="nv">n</span><span class="o">,</span><span class="w"> </span><span class="m">1</span><span class="o">,</span><span class="w"> </span><span class="m">24</span><span class="p">}]}</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">Transpose</span><span class="p">]</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="m">2</span><span class="p">}]}]</span></code></pre></figure>
-
-<p><img src="https://nathanfieldsteel.github.io/public/sixcolors.png" alt="sixcolors" height="20%" width="20%" class="center-image" /></p>
-
-<p>Finally, making a new Cayley table for \(S_4\) with this color
-palette and element re-ordering, we end up with this:</p>
-
-<figure class="highlight"><pre><code class="language-wl" data-lang="wl"><span class="nv">loc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Position</span><span class="p">[</span><span class="nv">idx</span><span class="o">,</span><span class="w"> </span><span class="nf">#</span><span class="p">][[</span><span class="m">1</span><span class="p">]][[</span><span class="m">1</span><span class="p">]]</span><span class="w"> </span><span class="o">&amp;;</span><span class="w">
-
-</span><span class="nb">ArrayPlot</span><span class="p">[</span><span class="nb">Map</span><span class="p">[</span><span class="nv">loc</span><span class="o">,</span><span class="w"> </span><span class="nv">M</span><span class="o">,</span><span class="w"> </span><span class="p">{</span><span class="m">2</span><span class="p">}]</span><span class="o">/</span><span class="m">24</span><span class="o">,</span><span class="w"> </span><span class="nb">ColorFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">sixcolors</span><span class="p">]</span></code></pre></figure>
-
-<p><img src="https://nathanfieldsteel.github.io/public/cayley.png" alt="goodcayley" height="80%" width="80%" class="center-image" /></p>
-
-<p>This Cayley table for \(S_4\) shows the flag of normal subgroup as
-we hoped it would. It’s still a multiplication table for the group
-\(S_4\), though with the elements listed in a different order. The
-top left \(12\times 12\) block is a Cayley table for \(A_4\),
-and the top left \(4 \times 4\) is a Cayley table for \(V\).
-Furthermore, the four \(12 \times 12\) blocks form a Cayley table of
-the quotient group \(S_4 / A_4\), while the thirty-six \(4 \times
-4\) blocks are a Cayley table of \(A_4 / V\), and the nine \(4
-\times 4\). blocks in the top left are a Cayley table for \(A_4 /
-V\).</p>
-
-<p><strong>Update (early 2020):</strong> The 2D visualization group in the UK math lab
-<a href="https://ukmathlab.blogspot.com/2020/05/progress-on-symmetric-group-quilt.html">is working
-on</a>
-a quilt based on this design, and they’re making fast progress. Their
-work might one day be displayed at mathematical art exhibit at the
-JMM, like their
-<a href="http://gallery.bridgesmathart.org/exhibitions/2020-joint-mathematics-meetings/kponto">partitions</a>
-quilt was this year.</p>
-
+    
   </div>
   
 </div>
 
 <div class="pagination">
   
-    <span class="pagination-item older">Older</span>
+    <a class="pagination-item older" href="http://localhost:4000/page2">Older</a>
   
   
     <span class="pagination-item newer">Newer</span>
