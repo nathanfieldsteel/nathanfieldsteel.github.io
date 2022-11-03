@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cellular automata and Langton's ant - part I
-synopsis: Summarizing the first half of a talk I gave about cellular automata and Langton's ant <br><br> <img src="http://nathanfieldsteel.github.io/public/langton/class4.png" alt="A class 4 cellular automaton" height="80%" width="80%" class="center-image"/>
+synopsis: Summarizing the first half of a talk I gave about cellular automata and Langton's ant. <br><br> <img src="http://nathanfieldsteel.github.io/public/langton/class4.png" alt="A class 4 cellular automaton" height="80%" width="80%" class="center-image"/>
 ---
 
 Earlier this month I gave a talk at University of Kentucky Undergraduate Math Club about cellular automata and Langton's ant. Here's the poster the students made for the event.

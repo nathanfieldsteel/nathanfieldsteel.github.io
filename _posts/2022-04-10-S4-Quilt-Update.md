@@ -1,6 +1,6 @@
 ---
 layout: post
-title: An update on the Cayley table quilt.
+title: An update on the Cayley table quilt
 synopsis: The quilt based on the <a href="https://nathanfieldsteel.github.io/2018/11/09/S4-Quilt.html">Cayley table for \(S_4\)</a> was awarded an honorable mention at the mathematical art exhibition at the 2022 JMM.<br><br><p><img src="http://nathanfieldsteel.github.io/public/tweet.png" alt="honorable mention tweet" height="80%" width="80%" class="center-image"/></p>
 ---
 

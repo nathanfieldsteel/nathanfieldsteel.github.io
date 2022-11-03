@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cellular automata and Langton's ant - part II
-synopsis: The second in a series of posts summarizing a talk I gave about cellular automata and Langton's ant. <br></br>
+synopsis: The second in a series of posts summarizing a talk I gave about cellular automata and Langton's ant. <br><br> <img src="http://nathanfieldsteel.github.io/public/langton/LRRL200000.png" alt="Langton's ant rule LRRL after 20000 steps" height="80%" width="80%" class="center-image"/>
 ---
 
 This is the second in a series of posts summarizing a talk I gave for the Undergraduate Math Club at the University of Kentucky. [The first post]({% post_url 2020-03-10-Langtons-Ant-I %}) covered one-dimensional cellular automata. In this post I'll cover the second half of the talk, Langton's ant and its generalizations.
