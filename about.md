@@ -3,18 +3,21 @@ layout: page
 title: About
 ---
 
-From 2017 until 2020, I was a postdoctoral scholar in the [algebra
+I am currently on the job market.
+
+From 2017 until 2022, I was a postdoctoral scholar and then a lecturer
+in the [algebra
 group](https://math.as.uky.edu/algebra-and-number-theory) at the
 University of Kentucky, where I worked with [Uwe
 Nagel](http://www.ms.uky.edu/~uwenagel/) on problems in computational
-mathematics and commutative algebra. After this postdoc I was a lecturer at the University of Kentucky. I am currently on the job market.
+mathematics and commutative algebra.
 
-Before coming to the University of Kentucky, I went to graduate school
-at the [University of Illinois](https://math.illinois.edu/) where I
+Before coming to the University of Kentucky, I did my graduate work at
+the [University of Illinois](https://math.illinois.edu/) where I
 worked with [Hal
 Schenck](https://math.illinois.edu/directory/profile/schenck) and
 finished my [PhD](http://hdl.handle.net/2142/97758) in 2017. I earned
-a BA in Computer Science and Mathematics at Wesleyan University in
+my BA in Computer Science and Mathematics at Wesleyan University in
 2010.
 
 I am interested in using domain-specific programming languages to
@@ -26,7 +29,7 @@ make improvements to computational software. I have experience with
 [Python](python.org/) with
 [SageMath](https://www.sagemath.org/), [NumPy](https://numpy.org/),
 [SciPy](https://www.scipy.org/) and
-[Pandas](https://pandas.pydata.org/).
+[OCaml](https://ocaml.org/).
 
 
 ### Publications
