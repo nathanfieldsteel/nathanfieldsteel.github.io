@@ -46,7 +46,7 @@ The lemma implies that \\(\overline{O Q_0}\\) and \\(\overline{O Q_1}\\) are con
 
 Here's a very different method of proof, which I have not seen written down anywhere else. We'll first translate the theorem into several algebraic statements. Then we'll verify those statements using symbolic algebra in Mathematica.
 
-First we note that we can rotate, translate, reflect and scale our initial triangle without losing any generality. This lets us assume that the triangle has one vertex at \\((0,1)\\) and two vertices \\((s,0)\\) and \\((t,0(\\) on the \\(x\\)-axis, with \\(t < s\\). In other words we lose nothing by placing our triangle in the \\(xy\\)-plane and assuming that it looks something like this:
+First we note that we can rotate, translate, reflect and scale our initial triangle without losing any generality. This lets us assume that the triangle has one vertex at \\((0,1)\\) and two vertices \\((s,0)\\) and \\((t,0)\\) on the \\(x\\)-axis, with \\(t < s\\). In other words we lose nothing by placing our triangle in the \\(xy\\)-plane and assuming that it looks something like this:
 
 ![dimensional reduction]({{site.url}}/public/coordinates.png){:height="50%" width="50%" .center-image}
 
@@ -87,13 +87,13 @@ How do we find the equation of a conic that passes through five points? Recall t
 
 \\[\operatorname{det}\def\arraystretch{1.5}\begin{bmatrix} x & y & 1 \\\\ a & b & 1 \\\\ c & d & 1\end{bmatrix}\\]
 
-This gives a linear equation in \\(x\\) and \\(y\\), and if you plug in \\((a,b)\\) or \\((c,d)\\) you get the determinant of a matrix with a repeated row, which is zero. So the determinant of this matrix is a line passing through the two given points. In a direct generalization of this fact, [any five points lie on a conic](https://en.wikipedia.org/wiki/Five_points_determine_a_conic). The equation of the conic passing through the five points
+This gives a linear equation in \\(x\\) and \\(y\\), and if you plug in \\((a,b)\\) or \\((c,d)\\) you get zero, since you're taking the determinant of a matrix with a repeated row. So the determinant of this matrix is the equation of a line passing through the two given points. In a direct generalization of this fact, [any five points lie on a conic](https://en.wikipedia.org/wiki/Five_points_determine_a_conic). The equation of the conic passing through the five points
 
-\\[(a_1,b_1),(a_2,b_2),(a_3,b_3),(a_4,b_4),(a_5,b_5)\\] is just the determinant of this \\(6 \times 6\\) matrix.
+\\[(a_1,b_1),(a_2,b_2),(a_3,b_3),(a_4,b_4),(a_5,b_5)\\] is just the determinant of this \\(6 \times 6\\) matrix:
 
 \\[\def\arraystretch{1.5}\begin{bmatrix}x^2 & xy & y^2 & x & y & 1 \\\\ a_1^2 & a_1b_1 & b_1^2 & a_1 & b_1 & 1 \\\\ a_2^2 & a_2b_2 & b_2^2 & a_2 & b_2 & 1 \\\\ a_3^2 & a_3b_3 & b_3^2 & a_3 & b_3 & 1 \\\\ a_4^2 & a_4b_4 & b_4^2 & a_4 & b_4 & 1 \\\\ a_5^2 & a_5b_5 & b_5^2 & a_5 & b_5 & 1 \end{bmatrix}\\]
 		      
-In Mathematica we can find the conic (with coefficients expressed in terms of \\(s\\) and \\(t\\)) passing through the points \\(Q_1\\) through \\(Q_5\\) by:
+for more or less the exact same reason. In Mathematica we can find the conic (with coefficients expressed in terms of \\(s\\) and \\(t\\)) passing through the points \\(Q_1\\) through \\(Q_5\\) by:
 
 {% raw %}
 ```wl
@@ -146,8 +146,8 @@ Finally, to check (3) we verify that the coefficient of the \\(xy\\) term is zer
 FullSimplify[Coefficient[f, x y], assumption]
 ```
 
-And it is. So with just 15 lines of code in Mathematica, we have shown that the six points \\(Q_0, Q_1, Q_2, Q_3, Q_4, Q_5\\) from Conway's circle theorem lie on a conic which can be normalized and written implicitly in the form
+And we do get `0`. So with just 15 lines of code in Mathematica, we have shown that the six points \\(Q_0, Q_1, Q_2, Q_3, Q_4, Q_5\\) from Conway's circle theorem lie on a conic which can be normalized and written implicitly in the form
 
 \\[x^2 + y^2 + A x + B y + C = 0.\\]
 
-Some [elementary algebra](https://en.wikipedia.org/wiki/Completing_the_square) shows that this is the equation of a circle. Since by construction its graph passes through multiple distinct points, it is non-degenerate. This completes the proof.
+Some [elementary algebra](https://en.wikipedia.org/wiki/Completing_the_square) shows that this is the equation of a circle. Since by construction its graph passes through multiple distinct points, it is non-degenerate. This completes the computer-assisted proof.
