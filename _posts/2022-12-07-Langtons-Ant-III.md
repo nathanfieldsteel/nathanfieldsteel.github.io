@@ -6,7 +6,9 @@ synopsis: A post about using <a href="https://ocaml.org/">OCaml</a> to make 4K v
 
 A while ago I gave a talk to Kentucky's undergrad math club about cellular automata, and I summarized that talk in a two-part blog post on this site. Here are links to [part I]({% post_url 2020-03-10-Langtons-Ant-I %}) and [part II]({% post_url 2020-03-29-Langtons-Ant-II %}). At the end of the second post I mentioned that I had made videos using Ryan Wick's [Langton's Ant Animator](https://github.com/rrwick/Langtons-Ant-Animator), but that I wanted to try making my own videos with my own code from the ground up. I just wrapped up that project. Below you can see the final result, which I suggest watching fullscreen and in 4K resolution if possible.
 
+<div style="text-align:center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_77IJkAHhaE?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ### Code
 
