@@ -142,7 +142,7 @@ More formally, a turmite has \\(m\\) internal states \\(S=\\{s_1, \ldots, s_m\\}
 \\[f_{\text{state}} :S \times C \to S\\]
 \\[f_{\text{turn}} :S \times C \to \\{0,1,2,3\\}\\]
 
-Here's now it works. Suppose the turmite's internal state is \\(s\\) and it's standing on a square with color \\(c\\). In this case, the turmite updates the square's color to  \\(f_{\text{color}}(s,c)\\), updates its internal state to \\(f_{\text{state}}(s,c)\\), and turns \\(90^{\circ}\\) to the left \\(f_{\text{turn}}(s,c)\\) times. We can represent these three functions as \\(m \times n\\) matrices over \\(C\\), \\(S\\) and \\(\\{0,1,2,3\\}\\) respectively. For brevity we will identify \\(C\\) and \\(S\\) with their sets of indices, which means all of our matrix entries will be integers.
+Here's how it works. Suppose the turmite's internal state is \\(s\\) and it's standing on a square with color \\(c\\). In this case, the turmite updates the square's color to  \\(f_{\text{color}}(s,c)\\), updates its internal state to \\(f_{\text{state}}(s,c)\\), and turns \\(90^{\circ}\\) to the left \\(f_{\text{turn}}(s,c)\\) times. We can represent these three functions as \\(m \times n\\) matrices over \\(C\\), \\(S\\) and \\(\\{0,1,2,3\\}\\) respectively. For brevity we will identify \\(C\\) and \\(S\\) with their sets of indices, which means all of our matrix entries will be integers.
 
 With this notation, the original Langton's ant can be represented as a turmite.
 
