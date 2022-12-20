@@ -4,7 +4,7 @@ title: Langton's ant part III - Visualizations with OCaml
 synopsis: A post about using <a href="https://ocaml.org/">OCaml</a> to make 4K visualizations of <a href="https://en.wikipedia.org/wiki/Langton%27s_ant#Extension_to_multiple_colors">multicolored generalizations of Langton's Ant</a>. This is a follow up to my earlier posts <a href="https://nathanfieldsteel.github.io/2020/03/10/Langtons-Ant-I.html">here</a> and <a href="https://nathanfieldsteel.github.io/2020/03/29/Langtons-Ant-II.html">here</a>.  <br><br> <div style="text-align:center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/_77IJkAHhaE?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 ---
 
-A while ago I gave a talk to Kentucky's undergrad math club about cellular automata, and I summarized that talk in a two-part blog post on this site. Here are links to [part I]({% post_url 2020-03-10-Langtons-Ant-I %}) and [part II]({% post_url 2020-03-29-Langtons-Ant-II %}). At the end of the second post I mentioned that I had made videos using Ryan Wick's [Langton's Ant Animator](https://github.com/rrwick/Langtons-Ant-Animator), but that I wanted to try making my own videos with my own code from the ground up. I just wrapped up that project. Below you can see the final result, which I suggest watching fullscreen and in 4K resolution if possible.
+A few years ago I gave a talk to Kentucky's undergrad math club about cellular automata, and I summarized that talk in a two-part blog post on this site. Here are links to [part I]({% post_url 2020-03-10-Langtons-Ant-I %}) and [part II]({% post_url 2020-03-29-Langtons-Ant-II %}). At the end of the second post I mentioned that I had made videos using Ryan Wick's [Langton's Ant Animator](https://github.com/rrwick/Langtons-Ant-Animator), but that I wanted to try making my own videos with my own code from the ground up. I just wrapped up this project. You can see the final result below, which I suggest watching fullscreen and in 4K resolution if possible.
 
 <div style="text-align:center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_77IJkAHhaE?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -12,7 +12,7 @@ A while ago I gave a talk to Kentucky's undergrad math club about cellular autom
 
 ### Code
 
-[Here](https://github.com/nathanfieldsteel/langtons-ant) is the github repo for the code I wrote. Keep in mind that while it's usable, I didn't write it with users other than myself in mind. So it's not particularly friendly. See the `readme` on github for instructions.
+[Here](https://github.com/nathanfieldsteel/langtons-ant) is the github repo for the code I wrote. Keep in mind that while it's usable, I didn't write it with users other than myself in mind. So it's not particularly friendly. See the `readme` on github for instructions on how to compile and use it.
 
 ### Motivations
 
@@ -25,7 +25,7 @@ As I mentioned in earlier posts, part of my motivation for this project came fro
 
 ### High-level summary
 
-The project was straightforward, especially because I had the existing Langton's Ant Animator to use as a roadmap. My plan was 
+The project was straightforward, especially because I had an existing codebase to use as a roadmap. My plan was 
 
 0. Implement Langton's Ant.
 0. Implement writing and saving images that show the ant's current state.
@@ -96,8 +96,8 @@ The reason for maintaining the `grid` and the `Rgb24.t` image simultaneously may
 
 When the ant takes a step, two things happen:
 
-0. The states `ant` and `grid` are updated appropriately.
-0. If the ant's `position` places it in the portion of the `grid` that corresponds to the `Rgb24.t` image, then the image is also updates.
+0. The state's `ant` and `grid` are updated appropriately.
+0. If the ant's `position` places it in the portion of the `grid` that corresponds to the `Rgb24.t` image, then the image is also updated.
 
 #### Basic functions
 
@@ -122,7 +122,7 @@ let move a =
   a.position <- (i + u, j + v)
 ```
 
-Checking whether or not position `(i,j)` is in the `Rgb24.t` image of state `s` just requires a few inequalities.
+Checking whether or not position `(i,j)` is in the `Rgb24.t` image of a given state just requires a few inequalities.
 
 ```ocaml
 let in_img i j s =
@@ -196,7 +196,7 @@ let steps i s =
 
 #### Saving images
 
-With the CamlImages library, saving the `Rgb24.t` image of state `s` to a file with filename `fname` is straightforward.
+With the [CamlImages](https://opam.ocaml.org/packages/camlimages/) library, saving the `Rgb24.t` image of state `s` to a file with filename `fname` is straightforward.
 
 ```ocaml
 let save_image fname s =
@@ -206,7 +206,7 @@ let save_image fname s =
 
 #### Making animation frames 
 
-In making the frames of an animation, we come to one of the reasons why I chose to code this up from scratch: Many of the most visually interesting examples I could find seemed to build and fill in an expanding square. In my mind, an animation visualizing this looks best if the square grows at a constant rate. But when the ant takes a constant number of steps per frame, the square's growth will appear to slow over time. But for these expanding-square examples, if the ant takes \\(b \cdot i\\) steps during frame \\(i\\) where \\(b\\) is some constant, the growth of the square will appear roughly constant. This isn't an exact science but it seems to work quite well. We just need to find the conatnt \\(b\\).
+In making the frames of an animation, we arrive at one of the main reasons why I chose to code this up from scratch: Many of the most visually interesting examples I could find seemed to build and fill in an expanding square. In my mind, an animation showing such an ant looks best if the square grows at a constant rate. But when the ant takes a constant number of steps per frame, the square's growth will appear to slow over time. But for these expanding-square examples, if the ant takes \\(b \cdot i\\) steps during frame \\(i\\) where \\(b\\) is some constant, the growth of the square will appear roughly constant. This is only a heuristic, since even if the ant does build an expanding square, its precise behavior is more complicated and less predictable. But in practice this seems to work quite well. We just need to find the conatnt \\(b\\), which takes some easy algebra.
 
 Say you want to make a \\(15\\)-second long animation where an ant takes `100_000_000` steps. For \\(15\\) seconds you'll need `900` frames. If the number of steps taken by the ant per frame is fixed, that would mean `100_000_000 / 900 = 111111` steps each frame. But if the ant is taking \\(b\cdot i\\) steps per frame, we need
 
@@ -274,23 +274,23 @@ But this can be tweaked or removed as needed.
 
 When I was writing [part II]({% post_url 2020-03-29-Langtons-Ant-II %}) of this post, I wrote a naïve implementation of Langton's Ant in Mathematica. I revisited that implementation now, and ran the rule `RLLR` on a grid of size \\(10,000 \times 10,000\\) for \\(2,000,000\\) steps. There was no image writing or even image displaying, just updating a `SparseArray`. The computation took `83.9` seconds. By contrast, my naïve OCaml implementation outlined above ran the same computation in `.08469` seconds. That's close to \\(1000\\) times faster. I am certain that the Mathematica implementation can be improved, though making performance optimizations to Mathematica code can be [complex and somewhat arcane](https://community.wolfram.com/groups/-/m/t/1037730). There are likely some improvements that could be made to my OCaml implementation too. But in this case all I care about is comparing my naïve first-pass implementations, and here OCaml is the clear favorite.
 
-It's also worth considering the performance impact of updating the `Rgb24.t` image every time the ant takes one step. It's of course possible that the ant will change the same pixel many times between calls to `save_image`, and it's not important to perform all those updates to the image. Could it be better to just build the entire image from scratch using the data in the `grid` every time you want to write an image file? The answer is that this *might* be better in theory, but in practice it never was.
+It's also worth considering the performance impact of updating the `Rgb24.t` image every time the ant takes one step. It's of course possible that the ant will change the same pixel many times between calls to `save_image`, and it's not important to perform all those updates to the image. Could it be better to just build the entire image from scratch using the data in the `grid` every time you want to write an image file? The answer is that this *might* be better in theory, but in practice this was never the case.
 
-Say you're working with an image of size \\(w \times h\\). Would you rather update all \\(w\cdot h\\) pixels of the image from the `grid`, or would you prefer to update \\(s\\) pixels of an existing image, where \\(s\\) is the number of steps the ant is going to take? The answer depends entirely on whether \\(s\\) is bigger or smaller than \\(w \times h\\), and for the purposes of making the 4K videos you see above, \\(s\\) was always smaller by several orders of magnitude.
+Say you're working with an image of size \\(w \times h\\). Would you rather update all \\(w\cdot h\\) pixels of the image using data from the `grid`, or would you prefer to update \\(s\\) pixels of an existing image, where \\(s\\) is the number of steps the ant is going to take? The answer depends entirely on whether \\(s\\) is bigger or smaller than \\(w \times h\\), and for the purposes of making the 4K videos you see above, \\(s\\) was always smaller by several orders of magnitude.
 
 ### Searching for visually interesting rules
 
 To find rules worth animating, I did some fairly exhaustive searches of short rules consisting of only `L` and `R`. By symmetry, it's enough to consider just the rules that start with `R`, which cuts the search space in half. Additionally, you can safely ignore cyclic strings (a cyclic string is a string `s` that's of the form `t ^ t ^ ... ^ t` for some shorter string `t`). An ant with rule `RRLRRL` or `RRLRRLRRL` will follow the exact same path as the ant with rule `RRL`, for obvious reasons.
 
-So the number of rules of length \\(n\\) is just half of the OEIS sequence [A027375](https://oeis.org/search?q=2%2C2%2C6%2C12%2C30%2C54&language=english&go=Search), which grows pretty fast. But it was completely feasible to generate all rules of length \\(13,14\\) and \\(15\\), run each ant for \\(50\\) million steps or so, and save all the resulting images.
+So the number of rules of length \\(n\\) is just half of the \\(n^{\text{th}}\) term of OEIS sequence [A027375](https://oeis.org/search?q=2%2C2%2C6%2C12%2C30%2C54&language=english&go=Search), which grows pretty fast. But it was completely feasible to generate all rules of length \\(13,14\\) and \\(15\\), run each ant for \\(50\\) million steps or so, and save all the resulting images.
 
 That took about a day and gave me a nice starting point in the search for interesting examples. What I quickly noticed is that rules that shared a long prefix tended to produce similar-looking patterns. It's easy to guess at some heuristic justifications for why this ought to be the case, but it's not a universal rule. Even when stated this informally, it admits plenty of counterexamples.
 
 But in practice it means that if I found a rule string \\(r\\) that made a somewhat interesting pattern, and I wanted to see some variations on that theme, I could then inspect the associated rules
 
-\\[\\{r \wedge s~\|~ \text{len}(s)\leqslant k\\}.\\]
+\\[\\{r \wedge s~\|~ \text{len}(s)\leqslant k\\},\\]
 
-For small values of \\(k.\\) Among these rules I would often (but not always) find lots of examples of similar-looking patterns, and I could select the one which filled space the fastest, or which had the most structure and the least noisy chaos. If none of them were satisfactory I could pick a few favorites and iterate, or I could increase \\(k\\) and try again.
+for small values of \\(k.\\) Among these rules I would often (but not always) find lots of examples of similar-looking patterns, and I could select the one which filled space the fastest, or which had the most structure and the least noisy chaos. If none of them were satisfactory I could pick a few favorites and iterate, or I could increase \\(k\\) and try again.
 
 For example, I was interested in the length \\(13\\) rule `RLRRLLLLLLLLL`, for which my code had generated this preview.
 
