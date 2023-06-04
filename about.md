@@ -3,14 +3,14 @@ layout: page
 title: About
 ---
 
-I am currently on the job market.
+I am a mathematician working in guidance, navigation and control analysis.
 
-From 2017 until 2022, I was a postdoctoral scholar and then a lecturer
+Between 2017 and 2022 I was a postdoctoral scholar and then a lecturer
 in the [algebra
 group](https://math.as.uky.edu/algebra-and-number-theory) at the
 University of Kentucky, where I worked with [Uwe
 Nagel](http://www.ms.uky.edu/~uwenagel/) on problems in computational
-mathematics and commutative algebra.
+and commutative algebra.
 
 Before coming to the University of Kentucky, I did my graduate work at
 the [University of Illinois](https://math.illinois.edu/) where I
