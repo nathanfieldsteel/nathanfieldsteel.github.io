@@ -17,20 +17,18 @@ the [University of Illinois](https://math.illinois.edu/) where I
 worked with [Hal
 Schenck](https://math.illinois.edu/directory/profile/schenck) and
 finished my [PhD](http://hdl.handle.net/2142/97758) in 2017. I earned
-my BA in Computer Science and Mathematics at Wesleyan University in
-2010.
+my BA in Computer Science and Mathematics at [Wesleyan
+University](https://www.wesleyan.edu/) in 2010.
 
-I am interested in using domain-specific programming languages to
-tackle problems in pure mathematics, and in using pure mathematics to
-make improvements to computational software. I have experience with
+I am interested in problems at the intersection of mathematics,
+statistics and computation. I also like using mathematics to improve
+computational software. I have experience with
 [Macaulay2](https://faculty.math.illinois.edu/Macaulay2/),
 [Mathematica](https://www.wolfram.com/mathematica/), and
-[GAP](https://www.gap-system.org/), as well as
-[Python](python.org/) with
-[SageMath](https://www.sagemath.org/), [NumPy](https://numpy.org/),
-[SciPy](https://www.scipy.org/) and
+[GAP](https://www.gap-system.org/), as well as [Python](python.org/)
+with [SageMath](https://www.sagemath.org/),
+[NumPy](https://numpy.org/), [SciPy](https://www.scipy.org/) and
 [OCaml](https://ocaml.org/).
-
 
 ### Publications
 
