@@ -21,7 +21,7 @@ my BA in Computer Science and Mathematics at [Wesleyan
 University](https://www.wesleyan.edu/) in 2010.
 
 I am interested in problems at the intersection of mathematics,
-statistics and computation. I also like using mathematics to improve
+statistics and computation. I also like using math to improve
 computational software. I have experience with
 [Macaulay2](https://faculty.math.illinois.edu/Macaulay2/),
 [Mathematica](https://www.wolfram.com/mathematica/), and
